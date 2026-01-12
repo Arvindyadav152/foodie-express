@@ -91,7 +91,14 @@ const PhoneLoginScreen = () => {
             }).start();
         } catch (error: any) {
             console.error('Send OTP Error:', error);
-            Alert.alert('Try Again', 'We couldn\'t send the OTP right now. Please try again later.');
+            if (error.code === 'auth/billing-not-enabled') {
+                Alert.alert(
+                    'Firebase Config Required',
+                    'Phone Authentication requires a billing account on Firebase (Blaze Plan). For development, you can use "Test Phone Numbers" in your Firebase Console without a credit card.'
+                );
+            } else {
+                Alert.alert('Try Again', 'We couldn\'t send the OTP right now. Please try again later.');
+            }
         } finally {
             setIsLoading(false);
         }
