@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f4f7f9",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Neumorphic Shadows for Light Theme */
+        .neu-flat {
+            background: #f4f7f9;
+            box-shadow: 8px 8px 16px #d1d4d6, -8px -8px 16px #ffffff;
+        }
+        .neu-inset {
+            background: #f4f7f9;
+            box-shadow: inset 4px 4px 8px #d1d4d6, inset -4px -4px 8px #ffffff;
+        }
+        .neu-button {
+            background: #f4f7f9;
+            box-shadow: 4px 4px 8px #d1d4d6, -4px -4px 8px #ffffff;
+            transition: all 0.2s ease;
+        }
+        .neu-button:active {
+            box-shadow: inset 2px 2px 5px #d1d4d6, inset -2px -2px 5px #ffffff;
+        }
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#181411]">
+<div class="relative flex h-auto min-h-screen w-full max-w-[430px] mx-auto flex-col bg-gradient-to-br from-[#f4f7f9] to-[#e6ecef] overflow-x-hidden pb-10">
+<!-- Top Bar -->
+<div class="flex items-center p-6 pb-2 justify-between sticky top-0 z-20 bg-[#f4f7f9]/80 backdrop-blur-md">
+<h2 class="text-[#181411] text-2xl font-bold leading-tight tracking-[-0.015em] flex-1">Notifications</h2>
+<button class="neu-button px-4 py-2 rounded-xl text-[#897561] text-xs font-bold tracking-[0.015em] uppercase">
+                Clear All
+            </button>
+</div>
+<!-- Segmented Buttons (Neumorphic Tabs) -->
+<div class="px-6 py-6">
+<div class="flex h-12 w-full items-center justify-center rounded-2xl neu-inset p-1.5">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-xl px-2 transition-all has-[:checked]:bg-white has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#897561] text-sm font-semibold">
+<span class="truncate">Updates</span>
+<input checked="" class="invisible w-0" name="nav-tabs" type="radio" value="Updates"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-xl px-2 transition-all has-[:checked]:bg-white has-[:checked]:shadow-sm has-[:checked]:text-primary text-[#897561] text-sm font-semibold">
+<span class="truncate">Promos</span>
+<input class="invisible w-0" name="nav-tabs" type="radio" value="Promos"/>
+</label>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-6">
+<h3 class="text-[#181411]/50 text-xs font-bold uppercase tracking-widest mb-4">Recent Activity</h3>
+</div>
+<!-- Notification List -->
+<div class="flex flex-col gap-5 px-6">
+<!-- Glassmorphic Update Card 1 -->
+<div class="glass-card p-4 rounded-2xl shadow-sm">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">delivery_dining</span>
+</div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-[#897561] text-[11px] font-semibold uppercase tracking-wider">10 mins ago</p>
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(236,127,19,0.5)]"></div>
+</div>
+<p class="text-[#181411] text-base font-bold leading-tight">Order #5234 Out for Delivery</p>
+<p class="text-[#897561] text-sm font-medium leading-relaxed">Your pizza is on the way with your driver, Marco.</p>
+<div class="mt-3 flex justify-start">
+<button class="neu-button flex items-center justify-center rounded-lg h-9 px-4 gap-2 text-xs font-bold text-[#181411]">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Mark Read</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Glassmorphic Update Card 2 -->
+<div class="glass-card p-4 rounded-2xl shadow-sm">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined text-[28px]">skillet</span>
+</div>
+<div class="flex flex-col flex-1 gap-1">
+<div class="flex justify-between items-center">
+<p class="text-[#897561] text-[11px] font-semibold uppercase tracking-wider">25 mins ago</p>
+</div>
+<p class="text-[#181411] text-base font-bold leading-tight">Chef is preparing your meal</p>
+<p class="text-[#897561] text-sm font-medium leading-relaxed">The restaurant has started your order. It smells delicious!</p>
+<div class="mt-3 flex justify-start">
+<button class="neu-button flex items-center justify-center rounded-lg h-9 px-4 gap-2 text-xs font-bold text-[#181411]">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Mark Read</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="mt-4">
+<h3 class="text-[#181411]/50 text-xs font-bold uppercase tracking-widest mb-4">Featured Promos</h3>
+</div>
+<!-- Glassmorphic Promo Card -->
+<div class="glass-card overflow-hidden rounded-2xl shadow-sm">
+<div class="w-full h-40 bg-center bg-cover" data-alt="Delicious pepperoni pizza with melting cheese" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_rf0AmkwY6PINFRZEe3umJ8S0ZpYPtVkgpBolL8dHW7IruntB1CtREEMKwJnv5HePsg1QfwjJxaqTZnQr5vYE3GXbHR7njOeEutjsJGR1BLH90K-KW41yOgK6ei2GFd6Te3vE1DTdUNh6dFgzp1FYya3cvaGVnmlvH4EW5RDO1NtXEC5LuAkAve0m9v-18bFm2NSlx8cBUhPbj77kczpYk6gHeTIbtXQz_xzn5VUSb5bCCaNRv-t_QnjrWLQ3SYx2MUF91X3iJ_8");'>
+<div class="w-full h-full bg-black/20 flex items-start justify-end p-3">
+<div class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-tighter">Limited Time</div>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<p class="text-[#897561] text-[11px] font-semibold uppercase tracking-wider">Expires in 2 days</p>
+</div>
+<p class="text-[#181411] text-lg font-bold leading-tight">Weekend Pizza Party: 40% OFF</p>
+<p class="text-[#897561] text-sm font-medium leading-relaxed">Use code PIZZA40 at checkout for all large pizzas.</p>
+<div class="mt-2 flex gap-3">
+<button class="bg-primary text-white flex-1 py-3 rounded-xl font-bold text-sm shadow-lg shadow-primary/30">
+                            Claim Offer
+                        </button>
+<button class="neu-button w-12 h-12 flex items-center justify-center rounded-xl text-[#181411]">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Glassmorphic Promo Card 2 -->
+<div class="glass-card overflow-hidden rounded-2xl shadow-sm mb-6">
+<div class="w-full h-40 bg-center bg-cover" data-alt="Fresh sushi platter with salmon and tuna" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkrW5E-8B85r0plxctuNOEqvioumI10zziIZt1I-xg1RxtNUC8vVBejPFffP6LCEebyMWeWVHTA4qF54RoTan5j0vDc5NPdOOxRFib_zgLZnKdQZmjTliPCjF4QlsjhI_VhwpfiK4-_fzQlvin-pA8Sn-00jg7curUnNmYlpfvVC2wgWPtXPRQcIoi_ZpHSAmS3qlD-yr4NNTputsml0-HZrjrGp22YIRFuz-G4fi8gjd4u86_CK83OB2-x7Z6bBpnIQVv27CBSMw");'>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<p class="text-[#897561] text-[11px] font-semibold uppercase tracking-wider">New Arrival</p>
+</div>
+<p class="text-[#181411] text-lg font-bold leading-tight">Fresh Sushi Near You</p>
+<p class="text-[#897561] text-sm font-medium leading-relaxed">Try the new 'Sakura Roll' at Sushi Zen. Free delivery today.</p>
+<div class="mt-2">
+<button class="neu-button w-full py-3 rounded-xl font-bold text-sm text-[#181411]">
+                            Order Now
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- iOS Bottom Tab Bar Mockup -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto glass-card h-20 rounded-t-3xl border-t-0 flex items-center justify-around px-8 z-30 shadow-2xl">
+<div class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold uppercase">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">notifications</span>
+<span class="text-[10px] font-bold uppercase">Alerts</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "accent-orange": "#FF8C42",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* Neumorphic Shadows - Light */
+        .neu-raised {
+            background: #f0f2f5;
+            box-shadow: 6px 6px 12px #ced1d6, -6px -6px 12px #ffffff;
+        }
+        .neu-inset {
+            background: #f0f2f5;
+            box-shadow: inset 4px 4px 8px #ced1d6, inset -4px -4px 8px #ffffff;
+        }
+        .neu-fab {
+            background: #FF8C42;
+            box-shadow: 6px 6px 12px #ced1d6, -2px -2px 8px #ffffff;
+        }
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .glass-header {
+            background: rgba(240, 242, 245, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        /* Neumorphic Toggle */
+        .toggle-checked {
+            box-shadow: inset 3px 3px 6px #09b109, inset -3px -3px 6px #11ff11;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111811]">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 glass-header px-4 pt-10 pb-4">
+<div class="flex items-center justify-between">
+<div class="neu-raised size-10 flex items-center justify-center rounded-lg cursor-pointer">
+<span class="material-symbols-outlined text-lg">arrow_back_ios_new</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Menu Management</h1>
+<div class="neu-raised size-10 flex items-center justify-center rounded-lg cursor-pointer">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+</div>
+<!-- Tabs -->
+<div class="mt-6">
+<div class="flex gap-4 overflow-x-auto pb-1 no-scrollbar">
+<a class="neu-inset px-6 py-2 rounded-full text-sm font-bold text-[#111811] flex-shrink-0" href="#">
+                    All Items
+                </a>
+<a class="px-6 py-2 rounded-full text-sm font-semibold text-gray-500 flex-shrink-0" href="#">
+                    Active
+                </a>
+<a class="px-6 py-2 rounded-full text-sm font-semibold text-gray-500 flex-shrink-0" href="#">
+                    Out of Stock
+                </a>
+</div>
+</div>
+</header>
+<main class="p-4 space-y-6 pb-32">
+<!-- Section Header -->
+<div class="flex justify-between items-end px-2">
+<div>
+<h2 class="text-lg font-bold">Featured Dishes</h2>
+<p class="text-xs text-gray-500">3 items currently live</p>
+</div>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Live Now</span>
+</div>
+<!-- Menu Item 1 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="size-20 rounded-lg bg-cover bg-center shrink-0 neu-raised" data-alt="Close up of a gourmet truffle mushroom burger" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4urD-LQhi7eSZC-3BbhP2Gpe1OvfneFbMZwlTSURlFCwIgoZb9GtMf0JJt5-gcjKgT02YFRakY2VKbvjGRJswWp_pMbwpwTtYMqk2Jf9KgAZsyNLs3QJojGZPESdoRHL0tff7t03jJA8xqoEvoa69MjQj3z5NDZ4Ru6Ljs7UYoKnny6MR2dipuFRstGMMrm_ZHMbRbg2R_HpRSVXzkWGH_IccAhOQN_3Ekp7jZS0Xac4eDuYchBxTfi45-dEUsb0k5tltTbWUOWM')"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-base">Truffle Mushroom Burger</h3>
+<p class="text-xs text-gray-500">Signature Series • Burgers</p>
+</div>
+</div>
+<!-- Neumorphic Price Field -->
+<div class="mt-3 flex items-center gap-2">
+<div class="neu-inset flex-1 rounded-lg px-3 py-2 flex items-center justify-between">
+<span class="text-sm font-semibold">$ 18.50</span>
+<span class="material-symbols-outlined text-gray-400 text-sm">edit</span>
+</div>
+</div>
+</div>
+<!-- Availability Toggle -->
+<div class="flex flex-col items-center gap-2">
+<label class="relative flex h-[34px] w-[60px] cursor-pointer items-center rounded-full neu-inset p-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-6 w-6 rounded-full bg-primary shadow-lg transition-all duration-300 peer-checked:translate-x-6 toggle-checked"></div>
+</label>
+<span class="text-[10px] font-bold text-primary uppercase">Active</span>
+</div>
+</div>
+</div>
+<!-- Menu Item 2 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 shadow-sm relative">
+<div class="flex items-start gap-4">
+<div class="size-20 rounded-lg bg-cover bg-center shrink-0 neu-raised" data-alt="Fresh quinoa salad bowl with avocado and greens" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcmF7GUSJ0GUJACDgKa0YFzgfgwiI0oYzpb3fTY1rA_USBh3J959OYSbutpnQW2wO_d7nHQD10kA8JYDGk6GfeAW4ufXywxw_4A5-U9ReG2alJGDNzJkEx5-mWvh-YDq6dLLG7zWRRfKxHlhvsdA6i8f3BnxB0q3kPoiQrr_lhWydoS_XpOU7YCAiV5nkK8FVZvovGZBz4IQvLZdMSqkGYXrDq4kgfrHAjLho1TH2a2ouaS3al834Wf_vXfPDXPGtm9TzQ6-aGHZQ')"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-base">Quinoa Salad Bowl</h3>
+<p class="text-xs text-gray-500">Vegan Friendly • Salads</p>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="neu-inset flex-1 rounded-lg px-3 py-2 flex items-center justify-between">
+<span class="text-sm font-semibold">$ 14.20</span>
+<span class="material-symbols-outlined text-gray-400 text-sm">edit</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<label class="relative flex h-[34px] w-[60px] cursor-pointer items-center rounded-full neu-inset p-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-6 w-6 rounded-full bg-primary shadow-lg transition-all duration-300 peer-checked:translate-x-6 toggle-checked"></div>
+</label>
+<span class="text-[10px] font-bold text-primary uppercase">Active</span>
+</div>
+</div>
+</div>
+<!-- Menu Item 3 (Inactive) -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 shadow-sm opacity-80">
+<div class="flex items-start gap-4">
+<div class="size-20 rounded-lg bg-cover bg-center shrink-0 neu-raised grayscale" data-alt="Crispy fish tacos with lime" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIxlcGM5g8mbKeWiQmnLLBwNyH4_eKy72LFuCqlNFS0a0YX6Gr20X7KbumJuqzHmn7woxpDLPOUP0JK9O8yH5SMvgQ5Bl0PvXgBnw0SSL5Le-kubWkmGulSZydYO9K-nfnXWEJ3L1ZCsA2QDmss9-stDbJxaNA51bD2VjXjOTNolN5RWSV85BkjIAa_CBmG4X0z5s51y180syzBAUbLT9oEB__V6y1QuU8z1IVPxJ67E4J2YIcIQ6LwBuPH8aR-xS-6kCLCLQbcrc')"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-base text-gray-700">Crispy Fish Tacos</h3>
+<p class="text-xs text-gray-500">Seafood • Tacos</p>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="neu-inset flex-1 rounded-lg px-3 py-2 flex items-center justify-between">
+<span class="text-sm font-semibold text-gray-400">$ 12.00</span>
+<span class="material-symbols-outlined text-gray-400 text-sm">edit</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<label class="relative flex h-[34px] w-[60px] cursor-pointer items-center rounded-full neu-inset p-1">
+<input class="sr-only peer" type="checkbox"/>
+<div class="h-6 w-6 rounded-full bg-white shadow transition-all duration-300 peer-checked:translate-x-6"></div>
+</label>
+<span class="text-[10px] font-bold text-gray-400 uppercase">Hidden</span>
+</div>
+</div>
+</div>
+<!-- Section Header 2 -->
+<div class="flex justify-between items-end px-2 pt-4">
+<div>
+<h2 class="text-lg font-bold">Beverages</h2>
+<p class="text-xs text-gray-500">Quick drinks</p>
+</div>
+</div>
+<!-- Menu Item 4 -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="size-20 rounded-lg bg-cover bg-center shrink-0 neu-raised" data-alt="Iced latte with layered coffee and milk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBXsRGjlXUSH20BcvG-DJU6rb18R8uxl8_Wb7YXGo1gpK_gJ1_AuHn1YjwCbfhsGwpOJNtcrSPbKh7nVFMfx1gyqAsuvqeBgAc9UQVb60O6qaCLDqlqpy3AGLMkguBA3JpoYvXLE1GBW4tE0ahRmUKZxWXqZ20iVOlSAxyKvcwIkK7knySoml2oP4O6JrG_5jn3SEWo0DOL6XLeUlSIG1HVuNzecdQ4zdLu8Za7o8xIjL9P9gbfEnkKajJ9gYvepaKDbtXX9RvnM8')"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-base">Iced Vanilla Latte</h3>
+<p class="text-xs text-gray-500">Coffee • Cold Drinks</p>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="neu-inset flex-1 rounded-lg px-3 py-2 flex items-center justify-between">
+<span class="text-sm font-semibold">$ 5.50</span>
+<span class="material-symbols-outlined text-gray-400 text-sm">edit</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<label class="relative flex h-[34px] w-[60px] cursor-pointer items-center rounded-full neu-inset p-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-6 w-6 rounded-full bg-primary shadow-lg transition-all duration-300 peer-checked:translate-x-6 toggle-checked"></div>
+</label>
+<span class="text-[10px] font-bold text-primary uppercase">Active</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-6 neu-fab size-16 rounded-full flex items-center justify-center text-white z-50">
+<span class="material-symbols-outlined text-3xl font-bold">add</span>
+</button>
+<!-- Bottom Nav Bar (iOS Style) -->
+<nav class="fixed bottom-0 w-full glass-header py-3 px-8 flex justify-between items-center z-40">
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-bold mt-1">Menu</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">orders</span>
+<span class="text-[10px] font-medium mt-1">Orders</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium mt-1">Store</span>
+</div>
+</nav>
+</body></html>

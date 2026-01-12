@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-flat {
+            background: #f0f2f5;
+            box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f0f2f5;
+            box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-button-green {
+            background: #0df20d;
+            box-shadow: 6px 6px 12px #c9d1c9, -6px -6px 12px #ffffff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center p-6 pb-2 justify-between z-10">
+<div class="neumorphic-flat flex size-10 shrink-0 items-center justify-center rounded-full text-[#111811]">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111811] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Order Tracking</h2>
+</div>
+<div class="px-4 py-4 z-10">
+<!-- Glassmorphic Status Card -->
+<div class="glass-card rounded-xl p-5 shadow-sm">
+<div class="flex flex-col gap-1 mb-4">
+<p class="text-[#608a60] text-xs font-semibold uppercase tracking-wider">Order #98214</p>
+<h3 class="text-[#111811] text-2xl font-bold leading-tight">Preparing your meal</h3>
+<p class="text-[#111811]/70 text-sm font-medium">Estimated Arrival: 12:45 PM</p>
+</div>
+<!-- Neumorphic Progress Bar -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[#111811] text-xs font-bold">Chef is cooking</span>
+<span class="text-primary text-xs font-bold">65%</span>
+</div>
+<div class="neumorphic-inset h-3 w-full rounded-full p-0.5">
+<div class="h-full rounded-full bg-primary" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Section with Glass Overlays -->
+<div class="relative flex-1 min-h-[300px] mx-4 mb-4 rounded-xl overflow-hidden neumorphic-flat">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" data-location="San Francisco City Map" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARO_4lTwDlT9gqKZXOdntG7OCB75JUFkvbuRmTeLEqqANuiRXEK12-qv46DB6xceiZ7Nu29cd8wCL_OSd3pKA2Rl7sWjesVJxqCgfv8VXbb9KzkZa2kioKqqq5S7brjtCu_cAQeDUsHavpASnbtS3dcfNrsA7NS7IvFSwLM7SPh2UU555wFhSL6l8-Z3RWJRWPNpw0yAYNfd8lXeLWoKbMi5y_OZZVSnQJjt4EIBJeAF_HqI7o8lv6uikrJdUSB5S0W8ZzunO7ojE");'>
+</div>
+<!-- Map Overlay Controls -->
+<div class="absolute top-4 right-4 flex flex-col gap-3">
+<button class="glass-card size-10 rounded-lg flex items-center justify-center text-[#111811]">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<button class="glass-card size-10 rounded-lg flex items-center justify-center text-[#111811]">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="glass-card size-10 rounded-lg flex items-center justify-center text-[#111811]">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<!-- Delivery Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 rounded-full animate-pulse"></div>
+<div class="bg-primary p-2 rounded-full border-2 border-white shadow-lg relative">
+<span class="material-symbols-outlined text-white text-xl">delivery_dining</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Delivery Partner Section -->
+<div class="px-4 pb-8 space-y-4">
+<div class="glass-card rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="neumorphic-flat p-1 rounded-full">
+<div class="size-14 rounded-full bg-cover bg-center" data-alt="Profile photo of delivery partner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA33lJ2vigYMZqzEHC-d5ROMJE6AB5YbSqekFri9TA9YbuxrFOvujkSi0cGFCQ9OkQcFzfHTNCrEwLfhe00IGqnIQ9XdMmyTEp676ntkjUi0iAxhX1Fv0tcNKeYnDcR1D5aiikXIBtPtgLcEMdRtk5f9YoLjk8igyODPPW9ZrIYJDre4-_kAc334cdAWNDbpL4xzKQzHt6OJ22HqDR2LEdJFm6UEW6VYY930Gaecrjqr60swzWe9zNktsuIsqA_s-cDMyCPROv2J24");'>
+</div>
+</div>
+<div>
+<h4 class="text-[#111811] text-base font-bold">Alex Johnson</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-amber-400 text-sm fill-current">star</span>
+<span class="text-[#111811]/70 text-sm font-medium">4.9 • Delivery Partner</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="glass-card size-11 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined fill-current">call</span>
+</button>
+<button class="glass-card size-11 rounded-full flex items-center justify-center text-[#111811]">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Neumorphic Support Button -->
+<button class="neumorphic-button-green w-full py-4 rounded-xl flex items-center justify-center gap-2 group active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-white">headset_mic</span>
+<span class="text-white font-bold text-lg">Contact Support</span>
+</button>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

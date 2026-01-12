@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    boxShadow: {
+                        'neu-flat': '8px 8px 16px #d1d9d1, -8px -8px 16px #ffffff',
+                        'neu-inset': 'inset 4px 4px 8px #d1d9d1, inset -4px -4px 8px #ffffff',
+                        'neu-button': '5px 5px 10px #c7d1c7, -5px -5px 10px #ffffff',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .bg-mesh {
+            background-color: #f5f8f5;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(13, 242, 13, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(13, 242, 13, 0.05) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4 bg-mesh">
+<div class="relative w-full max-w-[420px] h-auto min-h-[700px] flex flex-col items-center">
+<!-- Status Bar Space (iOS Style) -->
+<div class="h-10 w-full"></div>
+<!-- Glassmorphic Main Container -->
+<div class="glass w-full rounded-xl p-6 shadow-2xl flex flex-col gap-6">
+<!-- Top App Bar Content -->
+<div class="flex items-center justify-between w-full mb-4">
+<div class="w-10 h-10 rounded-full flex items-center justify-center shadow-neu-button bg-background-light">
+<span class="material-symbols-outlined text-[#111811]">chevron_left</span>
+</div>
+<h2 class="text-[#111811] text-lg font-extrabold leading-tight tracking-tight">FoodieExpress</h2>
+<div class="w-10 h-10 rounded-full flex items-center justify-center shadow-neu-button bg-background-light">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+</div>
+</div>
+<!-- Role Selector (Subtle Neumorphic) -->
+<div class="flex items-center justify-center gap-4 mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-[#608a60]">Current Role: User</span>
+</div>
+<!-- Neumorphic Tabs (Segmented Control) -->
+<div class="flex h-14 w-full items-center justify-center rounded-xl shadow-neu-inset bg-background-light p-1.5">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 bg-white shadow-sm text-[#111811] text-sm font-bold transition-all">
+<span class="truncate">Login</span>
+<input checked="" class="hidden" name="auth_tab" type="radio" value="Login"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-[#608a60] text-sm font-medium transition-all">
+<span class="truncate">Sign Up</span>
+<input class="hidden" name="auth_tab" type="radio" value="Sign Up"/>
+</label>
+</div>
+<!-- Headline -->
+<div class="text-center mt-2">
+<h2 class="text-[#111811] text-3xl font-extrabold tracking-tight">Welcome Back</h2>
+<p class="text-[#608a60] text-sm mt-2">Fresh meals are just a few taps away</p>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-5 mt-4">
+<!-- Email Input -->
+<div class="flex flex-col gap-2">
+<label class="text-[#111811] text-sm font-bold ml-2">Email Address</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 rounded-xl shadow-neu-inset border-none bg-background-light px-12 text-[#111811] focus:ring-2 focus:ring-primary/20 placeholder:text-[#608a60]/50" placeholder="hello@delivery.com" type="email"/>
+<span class="material-symbols-outlined absolute left-4 text-[#608a60]">mail</span>
+</div>
+</div>
+<!-- Password Input -->
+<div class="flex flex-col gap-2">
+<label class="text-[#111811] text-sm font-bold ml-2">Password</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 rounded-xl shadow-neu-inset border-none bg-background-light px-12 text-[#111811] focus:ring-2 focus:ring-primary/20 placeholder:text-[#608a60]/50" placeholder="••••••••" type="password"/>
+<span class="material-symbols-outlined absolute left-4 text-[#608a60]">lock</span>
+<span class="material-symbols-outlined absolute right-4 text-[#608a60]">visibility</span>
+</div>
+<div class="flex justify-end pr-2">
+<button class="text-xs font-bold text-primary hover:opacity-80">Forgot Password?</button>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="mt-4">
+<button class="w-full h-14 rounded-xl bg-primary shadow-neu-button text-white font-extrabold text-lg flex items-center justify-center gap-2 active:shadow-neu-inset transition-all">
+                    Sign In
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="flex items-center gap-4 my-2">
+<div class="flex-1 h-[1px] bg-[#dbe6db]"></div>
+<span class="text-[10px] font-bold text-[#608a60] uppercase tracking-widest">Or Continue With</span>
+<div class="flex-1 h-[1px] bg-[#dbe6db]"></div>
+</div>
+<!-- Social Logins -->
+<div class="flex justify-center gap-6 pb-2">
+<button class="w-14 h-14 rounded-full shadow-neu-button bg-background-light flex items-center justify-center active:shadow-neu-inset">
+<img alt="" class="w-6 h-6" data-alt="Apple brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi8leHb-WOthDQbbNMAvYl07seULJczMisfPJTjNOZKXFd0LWIxz1eml7yXSbX1PIZcWc-McOTEmKdbPXsZMznVVkvcLsPOquS075Ilx93DjLTr7ZrYU86NthEZNjhHB4h7McSRHUQRFIWJrjOcMtV02Ky10JCwBYM7obTgdGknMaOM0Fs56R22xj1OxYWHZ5ClZWVW0HjzKCG95GG4_ynHhl7OkMYdKpnNNa1eMWs4RB8AcgTL-0XhgQO7lrpt2_ZHn38JwagluQ"/>
+</button>
+<button class="w-14 h-14 rounded-full shadow-neu-button bg-background-light flex items-center justify-center active:shadow-neu-inset">
+<img alt="" class="w-6 h-6" data-alt="Google brand logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfQI52WU5HZQyGJeSHYEslSX2mYZtqbUp9HnRAj3I6ENGY68D1LpW1igZvr5wNsO6vt-yE61T9-R1Q_Ar4MWgDOSInCKZyeQ41EIoiOWYIOu3t7cJFTCGvbCB7OCHPOA0I8bPNjEvIE9kZyaFzNao62ZvrRZFmzTnSswrtK4sofWHcWnyj-ha1s6Lxy7wPEZGMevi07Ezv9_x0QOCBXAuf8wcYrKrQ-88qnFqmJK3pbstXyyhoVo_2jMeKwVXlrGL99aQsu6yarVs"/>
+</button>
+</div>
+<!-- Footer Role Switch -->
+<div class="mt-4 text-center">
+<p class="text-[#608a60] text-sm">
+                    Are you a vendor? 
+                    <a class="text-primary font-bold ml-1" href="#">Switch to Partner App</a>
+</p>
+</div>
+</div>
+<!-- Decorative Floating Elements -->
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+</div>
+</body></html>

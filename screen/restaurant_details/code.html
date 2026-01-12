@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restaurant Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(16, 34, 16, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neumorphic-btn {
+            background: #f5f8f5;
+            box-shadow: 4px 4px 8px #d1d9d1, -4px -4px 8px #ffffff;
+        }
+        .dark .neumorphic-btn {
+            background: #102210;
+            box-shadow: 4px 4px 8px #081108, -4px -4px 8px #183318;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111811] dark:text-white min-h-screen">
+<!-- Top Navigation -->
+<div class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 px-6 transition-all">
+<div class="glass size-10 rounded-full flex items-center justify-center cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[#111811] dark:text-white">arrow_back_ios_new</span>
+</div>
+<div class="flex gap-3">
+<div class="glass size-10 rounded-full flex items-center justify-center cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[#111811] dark:text-white">share</span>
+</div>
+<div class="glass size-10 rounded-full flex items-center justify-center cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[#111811] dark:text-white">favorite</span>
+</div>
+</div>
+</div>
+<!-- Hero Header Image -->
+<div class="relative w-full h-80">
+<div class="w-full h-full bg-center bg-cover" data-alt="Modern upscale restaurant interior with warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFMlwHZxWy_1iQH_xirmex8opSqL_wbXBYvbDT7BLgwHcCgXAfNAU4_r0b3iV9xuqO7tCCwfSTLvjfDw1e3ahYlKv89qH8arBKq8urpQqX_8TBuSVes91q99B_2SKD_8z50zBu2mArxW0FiC7kJdrqNxAtptWtaWRSeAWPp6zc9F_SdJiyRhTD4k6ReF--vb5EBbVved7aMNHM3rwSijU_6pfzCAuvwLe2GeIfE2AuFIhiYmPh6ZoicilRBPOT-NQAOZAyAHSbFXE");'>
+</div>
+<!-- Glassmorphic Restaurant Info Card -->
+<div class="absolute -bottom-12 left-4 right-4 glass p-5 rounded-xl shadow-xl z-10">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">The Verdant Bistro</h1>
+<p class="text-sm opacity-70 font-medium">Fine Dining • Contemporary French</p>
+</div>
+<div class="bg-primary/20 text-[#111811] dark:text-primary px-2 py-1 rounded text-xs font-bold">
+                    VENDOR VIEW
+                </div>
+</div>
+<div class="flex items-center gap-4 mt-3 pt-3 border-t border-white/20">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+<span class="text-sm font-bold">4.9</span>
+<span class="text-xs opacity-60">(1.2k+ reviews)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-lg">schedule</span>
+<span class="text-sm font-bold">20-35 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacing for floating card -->
+<div class="h-16"></div>
+<!-- Category Tabs -->
+<div class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md pt-4">
+<div class="flex overflow-x-auto px-4 gap-4 no-scrollbar pb-4">
+<a class="flex-none px-6 py-2 rounded-full bg-primary text-white text-sm font-bold transition-all shadow-md" href="#">Featured</a>
+<a class="flex-none px-6 py-2 rounded-full glass text-sm font-bold transition-all" href="#">Appetizers</a>
+<a class="flex-none px-6 py-2 rounded-full glass text-sm font-bold transition-all" href="#">Main Course</a>
+<a class="flex-none px-6 py-2 rounded-full glass text-sm font-bold transition-all" href="#">Desserts</a>
+<a class="flex-none px-6 py-2 rounded-full glass text-sm font-bold transition-all" href="#">Beverages</a>
+</div>
+</div>
+<!-- Menu Items -->
+<div class="px-4 pb-32">
+<h2 class="text-xl font-bold mt-6 mb-4 px-1">Signature Selection</h2>
+<div class="grid gap-6">
+<!-- Item Card 1 -->
+<div class="glass rounded-xl overflow-hidden flex flex-col shadow-sm">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Gourmet truffle pasta dish in white bowl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKA7D94B6I7hIPH2MRQKHw9A9SezxZR24d2jxUSKYnwr8tzVoGi8yjcLEIiGYYG9IqVHfw48N-2RcwmTtdL7_luhqLfLAbzr9CBvPf3IEqHuo7xs-2WLys4LUvrmfUI8ZXXaEI0DezW0bebnmRLhIcXFHtpqDhtHpRrwrlP5Zup0TYqfihZTvgkzGgfLMzPu2gg9FnpeK34h_pLa2_RBEDmhp5bpGgkxLtaPDsZTcV633mM409XbPczmPlft5gdfqt5jIhfae17sI");'>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div class="flex-1">
+<h3 class="text-lg font-bold">Black Truffle Tagliatelle</h3>
+<p class="text-sm opacity-70 mt-1 line-clamp-2 leading-relaxed">Handmade pasta tossed in creamy parmesan sauce with fresh shaving of Perigord truffles.</p>
+<p class="text-primary font-bold text-lg mt-2">$34.00</p>
+</div>
+<div class="ml-4">
+<button class="neumorphic-btn size-10 rounded-full flex items-center justify-center group active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-primary font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="glass rounded-xl overflow-hidden flex flex-col shadow-sm">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Seared scallops with pea puree and edible flowers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1LhElYqFtgkos1PzZSJvSlbMdBvNhwdhyLAYdbSjjyXMplhTzRP-dBtVDKnulzE3d-7g1_RWUBKFBXqRoF8WlZz83bEQzPxrmwSaKpFY2P23jBZPw2kxcfw0OKECjOnj5E0mYwdnXbf3kLNm06tcPXCYqzrwvmx7QXyOMd-G0RZyaFaut17foIwkwpmShpIHUw9UfjwVivGZlrMf_YxBBgYsO04QicHEAVkFr97AoVlUkgcjJrlHXLc8ZrGiLPPaQoz1EFfiXdPw");'>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h3 class="text-lg font-bold">Hokkaido Scallops</h3>
+<span class="bg-blue-100 text-blue-600 text-[10px] px-1.5 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="text-sm opacity-70 mt-1 line-clamp-2 leading-relaxed">Pan-seared jumbo scallops served on a bed of vibrant sweet pea purée and lemon zest.</p>
+<p class="text-primary font-bold text-lg mt-2">$28.50</p>
+</div>
+<div class="ml-4">
+<button class="neumorphic-btn size-10 rounded-full flex items-center justify-center active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-primary font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="glass rounded-xl overflow-hidden flex flex-col shadow-sm">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Wagyu beef slider with caramelized onions" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArJFH86nrgK1oh4ZEEvgTSb3Vx4JDNym0KqUPURVAaJ-lFVzOC1yyXgZNhvXk3sTYMKJ0_uQ-lBExhuBmS6OhASU9WboLERzOz6wW0diWQ1NMCXu87QyHhdvkvxTv0yu7NEA0bTRCOXO5ZNdBjuQbD5DHwJ64vShhXlMotUzAv8yL0fQwDZMXZcylnXg6ySOz-g59kZsxyDcvn-yjpq6AXwkepDPAz5kO2JU1MGM92SSa7Sams-IRFlNbRVGZRmy9C_yXeHHUk1xI");'>
+</div>
+<div class="p-4 flex justify-between items-center">
+<div class="flex-1">
+<h3 class="text-lg font-bold">Wagyu Petit Sliders</h3>
+<p class="text-sm opacity-70 mt-1 line-clamp-2 leading-relaxed">A trio of Grade A5 Wagyu beef patties with onion jam and artisan brioche buns.</p>
+<p class="text-primary font-bold text-lg mt-2">$24.00</p>
+</div>
+<div class="ml-4">
+<button class="neumorphic-btn size-10 rounded-full flex items-center justify-center active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-primary font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Cart Glass Bar -->
+<div class="fixed bottom-8 left-4 right-4 z-50">
+<div class="glass rounded-full p-2 pl-6 flex items-center justify-between shadow-2xl border-white/40 ring-1 ring-black/5">
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-[10px] text-white size-4 rounded-full flex items-center justify-center font-bold">3</span>
+</div>
+<div>
+<p class="text-xs opacity-60 font-bold uppercase tracking-wider">Total Basket</p>
+<p class="font-bold text-lg leading-none">$86.50</p>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-[#111811] px-8 py-3 rounded-full font-bold text-sm shadow-lg transition-transform active:scale-95">
+                View Cart
+            </button>
+</div>
+</div>
+<!-- Subtle Home Indicator (iOS) -->
+<div class="fixed bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-black/10 dark:bg-white/10 rounded-full pointer-events-none"></div>
+</body></html>

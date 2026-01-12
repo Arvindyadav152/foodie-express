@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings &amp; Security</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'neumorphic-flat': '6px 6px 12px #e0e2e0, -6px -6px 12px #ffffff',
+                        'neumorphic-pressed': 'inset 4px 4px 8px #d1d3d1, inset -4px -4px 8px #ffffff',
+                        'neumorphic-btn': '4px 4px 10px rgba(43, 238, 108, 0.3), -4px -4px 10px #ffffff',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-panel {
+            background: rgba(16, 34, 22, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Spline Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-[#111813] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto overflow-x-hidden pb-10">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-4 justify-between">
+<div class="text-[#111813] dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full bg-white/50 dark:bg-white/10 shadow-neumorphic-flat" data-icon="ArrowLeft">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111813] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Settings &amp; Security</h2>
+</header>
+<main class="px-4 space-y-6 mt-4">
+<!-- Security Section -->
+<section>
+<h3 class="text-[#111813] dark:text-white/80 text-sm font-semibold uppercase tracking-wider px-2 pb-3">Security</h3>
+<div class="glass-panel rounded-xl overflow-hidden shadow-neumorphic-flat">
+<!-- ListItem: Change Password -->
+<div class="flex items-center gap-4 px-4 min-h-16 justify-between border-b border-white/20 dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="text-[#111813] dark:text-primary flex items-center justify-center rounded-lg bg-white/40 dark:bg-white/5 shrink-0 size-10 shadow-neumorphic-pressed">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<p class="text-[#111813] dark:text-white text-base font-medium leading-normal flex-1 truncate">Change Password</p>
+</div>
+<div class="shrink-0">
+<div class="text-[#111813]/40 dark:text-white/40 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- ListItem: 2FA with Neumorphic Toggle -->
+<div class="flex items-center gap-4 px-4 min-h-16 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-[#111813] dark:text-primary flex items-center justify-center rounded-lg bg-white/40 dark:bg-white/5 shrink-0 size-10 shadow-neumorphic-pressed">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<p class="text-[#111813] dark:text-white text-base font-medium leading-normal flex-1 truncate">Two-Factor Authentication</p>
+</div>
+<div class="shrink-0">
+<label class="relative flex h-[32px] w-[56px] cursor-pointer items-center rounded-full border-none bg-white/50 dark:bg-black/20 p-1 shadow-neumorphic-pressed has-[:checked]:bg-primary/20 transition-all">
+<input checked="" class="peer invisible absolute" type="checkbox"/>
+<div class="h-6 w-6 rounded-full bg-primary peer-checked:translate-x-6 transition-transform duration-200 shadow-lg flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Preferences Section -->
+<section>
+<h3 class="text-[#111813] dark:text-white/80 text-sm font-semibold uppercase tracking-wider px-2 pb-3">Preferences</h3>
+<div class="glass-panel rounded-xl overflow-hidden shadow-neumorphic-flat">
+<!-- ListItem: Notifications -->
+<div class="flex items-center gap-4 px-4 min-h-16 justify-between border-b border-white/20 dark:border-white/5">
+<div class="flex items-center gap-4">
+<div class="text-[#111813] dark:text-primary flex items-center justify-center rounded-lg bg-white/40 dark:bg-white/5 shrink-0 size-10 shadow-neumorphic-pressed">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<p class="text-[#111813] dark:text-white text-base font-medium leading-normal flex-1 truncate">Notification Settings</p>
+</div>
+<div class="shrink-0">
+<div class="text-[#111813]/40 dark:text-white/40 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- ListItem: Language -->
+<div class="flex items-center gap-4 px-4 min-h-16 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-[#111813] dark:text-primary flex items-center justify-center rounded-lg bg-white/40 dark:bg-white/5 shrink-0 size-10 shadow-neumorphic-pressed">
+<span class="material-symbols-outlined">language</span>
+</div>
+<p class="text-[#111813] dark:text-white text-base font-medium leading-normal flex-1 truncate">Language</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full">EN (US)</span>
+<div class="text-[#111813]/40 dark:text-white/40 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Update Button -->
+<div class="pt-8 px-2">
+<button class="w-full bg-primary py-4 rounded-xl text-[#102216] font-bold text-lg shadow-neumorphic-btn active:shadow-neumorphic-pressed transition-all flex items-center justify-center gap-2">
+<span>Update Settings</span>
+<span class="material-symbols-outlined text-xl">done_all</span>
+</button>
+</div>
+<!-- Danger Zone -->
+<div class="pt-4 flex flex-col items-center gap-6">
+<button class="text-orange-500/80 font-medium text-sm hover:text-orange-600 transition-colors py-2">
+                    Delete Account
+                </button>
+<!-- Visual Accent -->
+<div class="w-24 h-1 bg-gray-200 dark:bg-white/10 rounded-full"></div>
+</div>
+</main>
+<!-- Decorative elements to enhance the glass feel -->
+<div class="fixed top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+<div class="fixed bottom-10 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+</div>
+</body></html>

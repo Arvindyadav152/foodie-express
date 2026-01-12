@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0df20d",
+              "background-light": "#f5f8f5",
+              "background-dark": "#102210",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-active {
+            border: 2px solid #0df20d;
+            box-shadow: 0 8px 32px 0 rgba(13, 242, 13, 0.15);
+        }
+        .neumorphic-raised {
+            background: #f5f8f5;
+            box-shadow: 6px 6px 12px #e1e4e1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f5f8f5;
+            box-shadow: inset 4px 4px 8px #e1e4e1, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-button {
+            transition: all 0.2s ease;
+        }
+        .neumorphic-button:active {
+            box-shadow: inset 2px 2px 5px #e1e4e1, inset -2px -2px 5px #ffffff;
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111811] min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-full neumorphic-raised neumorphic-button">
+<span class="material-symbols-outlined text-[#111811]">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111811] text-lg font-bold leading-tight tracking-tight flex-1 text-center">Service Selection</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center size-12 rounded-full neumorphic-raised neumorphic-button">
+<span class="material-symbols-outlined text-[#111811]">help</span>
+</button>
+</div>
+</div>
+<!-- Headline -->
+<div class="px-6 pt-8 pb-4">
+<h1 class="text-[#111811] text-[32px] font-extrabold leading-tight tracking-tight">What are you looking for today?</h1>
+<p class="text-[#608a60] text-base mt-2">Choose a category to get started</p>
+</div>
+<!-- Role Toggle (Neumorphic Segmented Control) -->
+<div class="px-6 py-4">
+<div class="flex h-12 items-center justify-center rounded-xl neumorphic-inset p-1.5">
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm text-[#608a60] has-[:checked]:text-[#111811] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Ordering Food</span>
+<input checked="" class="hidden" name="user-role" type="radio" value="User"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm text-[#608a60] has-[:checked]:text-[#111811] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Selling Products</span>
+<input class="hidden" name="user-role" type="radio" value="Vendor"/>
+</label>
+</div>
+</div>
+<!-- Services Section -->
+<div class="flex flex-col gap-6 px-6 py-6">
+<!-- Food Delivery Card (Active) -->
+<div class="glass glass-active rounded-xl p-4 flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-primary text-[#111811] text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+                    POPULAR
+                </div>
+<div class="w-full aspect-[16/9] rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+<img alt="Delicious hot pizza and pasta spread" class="w-full h-full object-cover" data-alt="Gourmet food selection on a restaurant table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUw7Sz0CAllUNwd9UCTWg-8eOUqlrDj8R9zhqiZbyOan_xneCprdxlnP-tX508GCuOG5EA_922s0kLrahkOmPjRltoqftOqWrIk3oNdXyPqDj7UoiWohuYFXpzhmS2tw852WR4VoYKQDnnALcA11k4QyItj1uQAaCFNqTK420Nk518T1dXKdvAweTFMh6rzuXmz9ZNZP1O6Du2knTaOmxkrrL-poDtxn1yYRq845Pe1QyQSopN8DQHolbBBj7-u_rgh1mbp5jUlzk"/>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111811] text-xl font-bold">Food Delivery</h3>
+<p class="text-[#4b6b4b] text-sm">Order from your favorite restaurants with lightning fast delivery.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span class="text-xs font-bold uppercase">Fresh &amp; Fast</span>
+</div>
+<button class="bg-primary text-[#111811] font-bold px-6 py-2.5 rounded-xl neumorphic-button text-sm shadow-lg shadow-primary/20">
+                        Order Now
+                    </button>
+</div>
+</div>
+<!-- Grocery Card (Disabled/Coming Soon) -->
+<div class="glass rounded-xl p-4 flex flex-col gap-4 relative opacity-75">
+<div class="absolute top-4 right-4 bg-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+                    COMING SOON
+                </div>
+<div class="w-full aspect-[16/9] rounded-lg overflow-hidden grayscale">
+<img alt="Fresh organic vegetables in a wooden crate" class="w-full h-full object-cover opacity-60" data-alt="Fresh vegetables and fruits in grocery bags" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFJ3K1UXI2m24_EWBQdkVwEloedZujitel7veWzfdekOnfGOYHYD8JlhqUf5k_FPT0QSYZc674ycR7JkMcefKeHIwHtnnm8uOM66xaos-lIH3Ul4zt6c6ecEs4j9Cl6_MqlOqHd2iirTepvoajk8mq57rj5lwDHOfIigylajqU4rzBI2U-g51dxrobTtq8btjCUpdngkEYjXT0Eg_NuEMBP1X_8weK2AOrMXk0Y9TMNbn9TuAuPnF71kQ9rgUvf5GQMjQ4-ciwEno"/>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-gray-500 text-xl font-bold">Grocery</h3>
+<p class="text-gray-400 text-sm">Fresh essentials and daily needs delivered directly to your door.</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-bold uppercase">Launch Alert</span>
+</div>
+<button class="bg-gray-200 text-gray-500 font-bold px-6 py-2.5 rounded-xl cursor-not-allowed text-sm">
+                        Notify Me
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="mt-auto p-8 text-center">
+<p class="text-[#608a60] text-sm mb-4">Are you a vendor?</p>
+<button class="inline-flex items-center gap-2 text-[#111811] font-bold text-sm bg-white/50 px-4 py-2 rounded-full border border-white/40">
+                Switch to Merchant Mode
+                <span class="material-symbols-outlined text-lg">storefront</span>
+</button>
+</div>
+<!-- Bottom Safe Area Spacer for iOS -->
+<div class="h-8"></div>
+</div>
+</body></html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0df20d",
+              "background-light": "#f5f8f5",
+              "background-dark": "#102210",
+              "neu-light": "#ffffff",
+              "neu-shadow": "#e1e8e1",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            boxShadow: {
+              'neumorphic': '8px 8px 16px #e1e8e1, -8px -8px 16px #ffffff',
+              'neumorphic-sm': '4px 4px 8px #e1e8e1, -4px -4px 8px #ffffff',
+              'neumorphic-inset': 'inset 4px 4px 8px #e1e8e1, inset -4px -4px 8px #ffffff',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            background-color: #f5f8f5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen text-[#111811]">
+<!-- Main Container -->
+<div class="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden pb-10">
+<!-- Top Navigation -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-[#111811] dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full shadow-neumorphic-sm bg-background-light">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111811] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">User Profile</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-12 cursor-pointer items-center justify-center rounded-full shadow-neumorphic-sm bg-background-light text-[#111811] dark:text-white">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+<!-- Glassmorphism Profile Header -->
+<div class="px-6 py-6">
+<div class="glass-effect rounded-xl p-6 flex flex-col items-center shadow-lg relative overflow-hidden">
+<!-- Abstract Gradient for Background of Glass Card -->
+<div class="absolute inset-0 -z-10 bg-gradient-to-br from-primary/20 via-transparent to-primary/10"></div>
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full border-4 border-white shadow-xl min-h-24 w-24 mb-4" data-alt="User profile picture of a young professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgBQi8dDsr_QpyGz6MvRB6Ud6PrCtE6HO7CuaDVEILDEOI2tu0LN__WccLIDO22F-RPmBOVczyijGzxf6e4UQfRPgpO0gayeYZZ-gJVkhLVjyUnB8P98z580GfdjtqKZoIl-l80nnPYAspnsvpEdAr32yOp5suv22tFzXYCSulH50lAEtSHqo-sLASpoh1gj4YF-jNrZFYedNwMJa_ITxuyCKdjMKsfw9qMuM9GfLtOqKibIRB5Wm2yjGIK0w8b4fsCyFYu-tKK2s");'>
+</div>
+<div class="absolute bottom-4 right-0 bg-primary size-6 rounded-full border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">verified</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[#111811] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Alex Johnson</p>
+<p class="text-[#608a60] text-sm font-medium leading-normal text-center">alex.j@example.com</p>
+<div class="mt-2 px-3 py-1 bg-primary/20 rounded-full">
+<p class="text-[#111811] text-xs font-bold leading-normal text-center">Premium Member</p>
+</div>
+</div>
+<!-- Segmented Control for Dual Role -->
+<div class="flex mt-6 w-full h-11 items-center justify-center rounded-xl bg-white/50 p-1 shadow-inner border border-white/40">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm has-[:checked]:text-[#111811] text-[#608a60] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">User</span>
+<input checked="" class="invisible w-0" name="role-toggle" type="radio" value="User"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:shadow-sm has-[:checked]:text-[#111811] text-[#608a60] text-sm font-semibold leading-normal transition-all">
+<span class="truncate">Vendor</span>
+<input class="invisible w-0" name="role-toggle" type="radio" value="Vendor"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Neumorphic Options List -->
+<div class="px-6 flex flex-col gap-6 mt-2">
+<!-- List Item 1: Order History -->
+<div class="flex items-center gap-4 bg-background-light shadow-neumorphic p-4 rounded-xl cursor-pointer active:shadow-neumorphic-inset transition-all">
+<div class="text-primary flex items-center justify-center rounded-lg bg-background-light shadow-neumorphic-sm shrink-0 size-11">
+<span class="material-symbols-outlined">history</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-[#111811] text-base font-semibold leading-none">Order History</p>
+<p class="text-[#608a60] text-[12px] mt-1">Check your past 15 orders</p>
+</div>
+<div class="shrink-0 text-[#608a60]">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- List Item 2: Saved Addresses -->
+<div class="flex items-center gap-4 bg-background-light shadow-neumorphic p-4 rounded-xl cursor-pointer active:shadow-neumorphic-inset transition-all">
+<div class="text-primary flex items-center justify-center rounded-lg bg-background-light shadow-neumorphic-sm shrink-0 size-11">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-[#111811] text-base font-semibold leading-none">Saved Addresses</p>
+<p class="text-[#608a60] text-[12px] mt-1">Home, Office &amp; others</p>
+</div>
+<div class="shrink-0 text-[#608a60]">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- List Item 3: Payments -->
+<div class="flex items-center gap-4 bg-background-light shadow-neumorphic p-4 rounded-xl cursor-pointer active:shadow-neumorphic-inset transition-all">
+<div class="text-primary flex items-center justify-center rounded-lg bg-background-light shadow-neumorphic-sm shrink-0 size-11">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-[#111811] text-base font-semibold leading-none">Payment Methods</p>
+<p class="text-[#608a60] text-[12px] mt-1">Visa ending in •••• 4242</p>
+</div>
+<div class="shrink-0 text-[#608a60]">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- List Item 4: Settings -->
+<div class="flex items-center gap-4 bg-background-light shadow-neumorphic p-4 rounded-xl cursor-pointer active:shadow-neumorphic-inset transition-all">
+<div class="text-primary flex items-center justify-center rounded-lg bg-background-light shadow-neumorphic-sm shrink-0 size-11">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-[#111811] text-base font-semibold leading-none">Settings</p>
+<p class="text-[#608a60] text-[12px] mt-1">Privacy &amp; Notifications</p>
+</div>
+<div class="shrink-0 text-[#608a60]">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Logout Button -->
+<div class="px-6 mt-12 mb-8">
+<button class="w-full flex h-14 items-center justify-center gap-2 rounded-xl bg-background-light shadow-neumorphic active:shadow-neumorphic-inset transition-all text-[#111811] font-bold">
+<span class="material-symbols-outlined text-primary">logout</span>
+<span>Sign Out</span>
+</button>
+<p class="text-center text-[#608a60] text-[12px] mt-6 opacity-60">Version 2.4.1 (Build 120)</p>
+</div>
+</div>
+</body></html>

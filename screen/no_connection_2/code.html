@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refer a Friend - Food Delivery App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "charcoal": "#111813",
+                        "soft-green": "#61896f",
+                        "neumorphic-shadow-light": "#ffffff",
+                        "neumorphic-shadow-dark": "#d1d9d1",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .inner-glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .neumorphic-button {
+            box-shadow: 6px 6px 12px #d1d9d1, -6px -6px 12px #ffffff;
+            transition: all 0.2s ease;
+        }
+        .neumorphic-button:active {
+            box-shadow: inset 4px 4px 8px #d1d9d1, inset -4px -4px 8px #ffffff;
+            transform: scale(0.98);
+        }
+        .neumorphic-icon-btn {
+            box-shadow: 4px 4px 8px #d1d9d1, -4px -4px 8px #ffffff;
+            transition: all 0.2s ease;
+        }
+        .neumorphic-icon-btn:active {
+            box-shadow: inset 2px 2px 4px #d1d9d1, inset -2px -2px 4px #ffffff;
+        }
+        .shadow-soft {
+            box-shadow: 0 10px 30px -10px rgba(43, 238, 108, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light font-display min-h-screen flex flex-col overflow-x-hidden">
+<div class="fixed top-[-10%] left-[-10%] w-[60%] h-[40%] bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+<div class="fixed bottom-[10%] right-[-10%] w-[50%] h-[40%] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+<header class="flex items-center px-6 py-8 justify-between">
+<button class="flex items-center justify-center w-12 h-12 rounded-2xl bg-background-light neumorphic-icon-btn">
+<span class="material-symbols-outlined text-charcoal">arrow_back_ios_new</span>
+</button>
+<h2 class="text-charcoal font-bold text-lg">Refer a Friend</h2>
+<div class="w-12 h-12"></div>
+</header>
+<main class="flex-grow flex flex-col items-center px-6 pt-2 pb-8">
+<div class="glass-card w-full max-w-sm rounded-3xl p-8 flex flex-col items-center text-center shadow-soft">
+<div class="relative w-44 h-44 mb-8 flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
+<div class="relative z-10 text-primary">
+<span class="material-symbols-outlined !text-[100px]" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;">
+                        featured_seasonal_and_gifts
+                    </span>
+</div>
+<div class="absolute top-4 right-4 bg-white/60 p-2 rounded-xl backdrop-blur-sm shadow-sm rotate-12">
+<span class="material-symbols-outlined text-primary text-xl">restaurant</span>
+</div>
+<div class="absolute bottom-6 left-2 bg-white/60 p-2 rounded-xl backdrop-blur-sm shadow-sm -rotate-12">
+<span class="material-symbols-outlined text-primary text-xl">local_pizza</span>
+</div>
+</div>
+<h1 class="text-charcoal text-3xl font-bold tracking-tight mb-2">Give $10, Get $10</h1>
+<p class="text-soft-green text-sm px-4 leading-relaxed mb-8">
+                Share the joy of great food! Invite your friends and you'll both get $10 when they place their first order.
+            </p>
+<div class="w-full inner-glass rounded-2xl p-4 flex items-center justify-between">
+<div class="text-left">
+<p class="text-[10px] uppercase tracking-widest text-soft-green/60 font-bold mb-0.5">Your Code</p>
+<p class="text-charcoal text-xl font-bold tracking-wider">FOODIE2024</p>
+</div>
+<button class="w-12 h-12 rounded-xl bg-background-light neumorphic-icon-btn flex items-center justify-center">
+<span class="material-symbols-outlined text-primary font-bold">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 mt-10">
+<button class="w-14 h-14 rounded-2xl bg-background-light neumorphic-icon-btn flex items-center justify-center group">
+<span class="material-symbols-outlined text-charcoal group-active:text-[#25D366]">chat</span>
+</button>
+<button class="w-14 h-14 rounded-2xl bg-background-light neumorphic-icon-btn flex items-center justify-center group">
+<span class="material-symbols-outlined text-charcoal group-active:text-[#0084FF]">forum</span>
+</button>
+<button class="w-14 h-14 rounded-2xl bg-background-light neumorphic-icon-btn flex items-center justify-center group">
+<span class="material-symbols-outlined text-charcoal">mail</span>
+</button>
+</div>
+</main>
+<footer class="px-8 pb-10 flex flex-col items-center">
+<button class="neumorphic-button w-full max-w-[320px] h-16 bg-primary rounded-2xl flex items-center justify-center gap-2 group">
+<span class="text-charcoal text-lg font-bold">Invite Friends</span>
+<span class="material-symbols-outlined text-charcoal">send</span>
+</button>
+<p class="mt-6 text-[10px] text-soft-green/50 font-bold uppercase tracking-[0.2em]">
+            Terms and conditions apply
+        </p>
+</footer>
+
+</body></html>

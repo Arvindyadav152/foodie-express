@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Home - Food Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-flat {
+            background: #f5f8f5;
+            box-shadow: 6px 6px 12px #cfd3cf, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f5f8f5;
+            box-shadow: inset 4px 4px 8px #cfd3cf, inset -4px -4px 8px #ffffff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        body {
+            background-color: #f5f8f5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen pb-24">
+<!-- Top AppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3 neumorphic-flat p-2 rounded-xl pr-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Deliver to</p>
+<div class="flex items-center gap-1">
+<h2 class="text-[#111811] text-sm font-bold leading-tight">123 Main St, New York</h2>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div class="h-11 w-11 rounded-full border-2 border-white shadow-sm overflow-hidden bg-white">
+<img class="h-full w-full object-cover" data-alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBibHEyep33s4ZWt_S3GbYdZ3S1ZKvaDEF9m-xBv1Kdhun9HaDlzUB7OIh61aSlUWm49fnRH-hbmsdFLvNuqMb9hVbKSFVdC4YpTsHIItl9OZrrmhFrBVvuwMxBNusHcEYLhul2Y21t4gKhsieEBoiZ-KK6qj0LelYyi4KIW3Hojb2XfBJwej_hBWtdZM4WPMYsAEU3disC4LP1lpBNP08UbVrveXPk2UPEfNntzjxpgeatnrvUVkAtkOIOWQf3uhIeykR2Z6KGhTk"/>
+</div>
+</header>
+<!-- Search Bar (Neumorphic) -->
+<section class="px-4 py-4">
+<div class="neumorphic-inset flex h-14 w-full items-center px-4 rounded-xl">
+<span class="material-symbols-outlined text-primary mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm font-medium placeholder:text-gray-400" placeholder="Search for restaurants or dishes" type="text"/>
+<span class="material-symbols-outlined text-gray-400">tune</span>
+</div>
+</section>
+<!-- Chips (Neumorphic) -->
+<section class="py-2">
+<div class="flex gap-4 px-4 overflow-x-auto no-scrollbar pb-4">
+<div class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary text-[#111811] px-5 shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined">grid_view</span>
+<p class="text-sm font-bold">All</p>
+</div>
+<div class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-5 text-gray-600">
+<span class="material-symbols-outlined">local_pizza</span>
+<p class="text-sm font-semibold">Pizza</p>
+</div>
+<div class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-5 text-gray-600">
+<span class="material-symbols-outlined">lunch_dining</span>
+<p class="text-sm font-semibold">Burger</p>
+</div>
+<div class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-5 text-gray-600">
+<span class="material-symbols-outlined">set_meal</span>
+<p class="text-sm font-semibold">Sushi</p>
+</div>
+<div class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-5 text-gray-600">
+<span class="material-symbols-outlined">eco</span>
+<p class="text-sm font-semibold">Salads</p>
+</div>
+</div>
+</section>
+<!-- Section Header -->
+<section class="px-4 flex items-center justify-between">
+<h2 class="text-[#111811] text-xl font-bold tracking-tight">Recommended for You</h2>
+<button class="text-primary text-sm font-bold">View all</button>
+</section>
+<!-- Vertical List of Glassmorphic Cards -->
+<section class="p-4 space-y-6">
+<!-- Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden shadow-xl">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Fresh healthy salad bowl with salmon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2op1kd3RnU5Y9sHstHtuw34O63DZA3l1cZ_41Zlaua-2vin3YogOLkXwZO-ViYsqr8ozOr4AaJJ_lVEYslLSWMllGkLfv_c1yOjqhJdWMCE4ZRrgibCt7MBToI7YHe5vQMtf_WMWX4tzsWGFKLXgBgsZRHcXZCZUXcfaf9Lb2BWdJQ0t0owCaYLT_J408ViNHlp6WKfduQ-gYpUqPc4UQCO90Ghmeq53JiL1lZyoX_HSnxmk9vJ2eWEqZax5SCxp9r6-26H25X8w');"></div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[12px] font-bold">4.8</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-[#111811] text-lg font-bold">Green Bites</h3>
+<p class="text-gray-500 text-xs font-medium">Healthy • Salads • Bowls</p>
+</div>
+<div class="bg-primary/20 text-green-700 px-2 py-1 rounded-lg text-[10px] font-bold">
+                        FREE DELIVERY
+                    </div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-bold">15-25 min</span>
+</div>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="text-xs font-bold">$•$$</span>
+</div>
+</div>
+<button class="bg-primary text-[#111811] px-5 py-2 rounded-xl text-sm font-bold shadow-md shadow-primary/20">
+                        Order Now
+                    </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden shadow-xl">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Gourmet pepperoni pizza with basil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhBBy5D1AfFgxBg12ThWSQryLxA_QMOqbmEznlrFtHeIhmHzq4mVrCNmdMaPBjboxtyD8HX47YGJ0OrmkBNBwlrtP4D8T2SSSd-_PDU90BdWBati68vKRFVC40ch2jtbrER6kvpGukcjfp7mm9E-sGIKrI3cqviVYxRO4Cy02EnxDRcUnBPV3fAl7nIGxIL9OTvDSSFg2QcbzsRkN5q7Fk-RbLpz1-ueMcRRJZQjkMgy3gp1RS9xkG1KDWuoJF4dgiYelddXyX5Mo');"></div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[12px] font-bold">4.5</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-[#111811] text-lg font-bold">Pizza Studio</h3>
+<p class="text-gray-500 text-xs font-medium">Italian • Pizza • Pasta</p>
+</div>
+<div class="bg-gray-100 text-gray-700 px-2 py-1 rounded-lg text-[10px] font-bold">
+                        $1.99 DELIVERY
+                    </div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-bold">20-35 min</span>
+</div>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="text-xs font-bold">$$•$$$</span>
+</div>
+</div>
+<button class="bg-primary text-[#111811] px-5 py-2 rounded-xl text-sm font-bold shadow-md shadow-primary/20">
+                        Order Now
+                    </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-2xl overflow-hidden shadow-xl">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Sushi platter with variety of rolls" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_xBFa9tVAF_ghopUeEWMG_kxXJBVizKVXdtjjFbLJFcq9VYPMN9P9iPEiVghoi9XELy8s2v020mWFSJvJuTMsFb93L1G_9mpSbW7BzqZqfoKNaZ9FnrsploUCDiObd1LyZWka8uNlEMblO0X9M1NEJOR1_LSt7DukidkWV4bI7VbUD2IcQqIj7p2ZSNrnJZaqQIWFivhseMTnNoW04wne-lPjcUHHwdDSP33EdYX7Qf-2Jk1lZX11UbBs5-1gaev79E8ZAV4ZWaI');"></div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[12px] font-bold">4.9</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-[#111811] text-lg font-bold">Zen Sushi</h3>
+<p class="text-gray-500 text-xs font-medium">Japanese • Sushi • Ramen</p>
+</div>
+<div class="bg-primary/20 text-green-700 px-2 py-1 rounded-lg text-[10px] font-bold">
+                        FREE DELIVERY
+                    </div>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-bold">25-40 min</span>
+</div>
+<div class="flex items-center gap-1 text-gray-600">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="text-xs font-bold">$$$•$$$</span>
+</div>
+</div>
+<button class="bg-primary text-[#111811] px-5 py-2 rounded-xl text-sm font-bold shadow-md shadow-primary/20">
+                        Order Now
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation Bar (Glassmorphic) -->
+<nav class="fixed bottom-6 left-6 right-6 h-16 glass-card rounded-full z-50 flex items-center justify-around px-6 shadow-2xl">
+<button class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="relative -top-6 h-14 w-14 bg-primary rounded-full flex items-center justify-center text-[#111811] shadow-lg shadow-primary/40 border-4 border-background-light">
+<span class="material-symbols-outlined">shopping_basket</span>
+<div class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] h-5 w-5 rounded-full flex items-center justify-center border-2 border-white font-bold">
+                2
+            </div>
+</div>
+<button class="flex flex-col items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+</body></html>

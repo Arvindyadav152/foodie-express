@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Reviews &amp; Ratings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e6994c",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211911",
+                        "neumorph-light": "#ffffff",
+                        "neumorph-shadow": "#d1d1d1",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .neumorph-outset {
+            background: #f8f7f6;
+            box-shadow: 6px 6px 12px #e2e1e0, -6px -6px 12px #ffffff;
+        }
+        .neumorph-inset {
+            background: #f8f7f6;
+            box-shadow: inset 4px 4px 8px #e2e1e0, inset -4px -4px 8px #ffffff;
+        }
+        .neumorph-btn-orange {
+            background: #e6994c;
+            box-shadow: 4px 4px 8px #d48c45, -4px -4px 8px #ffb263;
+        }
+        .neumorph-chip {
+            background: #f8f7f6;
+            box-shadow: 3px 3px 6px #e2e1e0, -3px -3px 6px #ffffff;
+        }
+        .neumorph-chip-active {
+            background: #f8f7f6;
+            box-shadow: inset 2px 2px 5px #e2e1e0, inset -2px -2px 5px #ffffff;
+            color: #e6994c;
+            border: 1px solid rgba(230, 153, 76, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#171411] dark:text-white min-h-screen">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex items-center justify-center w-10 h-10 rounded-full neumorph-chip">
+<span class="material-symbols-outlined text-[#171411]">arrow_back_ios_new</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">Vendor Reviews</h1>
+<div class="flex items-center justify-center w-10 h-10 rounded-full neumorph-chip">
+<span class="material-symbols-outlined text-[#171411]">more_horiz</span>
+</div>
+</header>
+<main class="px-4 pb-12 space-y-6">
+<!-- Aggregate Rating Section (Glassmorphic Card) -->
+<section class="mt-4">
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<!-- Abstract background pattern for glass card -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="flex flex-col md:flex-row gap-8 items-center relative z-10">
+<div class="flex flex-col items-center gap-1">
+<p class="text-6xl font-black text-primary leading-none">4.8</p>
+<div class="flex gap-0.5 mt-2">
+<span class="material-symbols-outlined text-primary fill-1">star</span>
+<span class="material-symbols-outlined text-primary fill-1">star</span>
+<span class="material-symbols-outlined text-primary fill-1">star</span>
+<span class="material-symbols-outlined text-primary fill-1">star</span>
+<span class="material-symbols-outlined text-primary/40 fill-1">star</span>
+</div>
+<p class="text-[#877564] text-sm mt-1">1,240 reviews</p>
+</div>
+<div class="w-full space-y-3">
+<!-- Rating Breakdown (Neumorphic) -->
+<div class="grid grid-cols-[20px_1fr_40px] items-center gap-x-3">
+<span class="text-sm font-semibold">5</span>
+<div class="h-3 w-full rounded-full neumorph-inset overflow-hidden flex items-center px-0.5">
+<div class="h-1.5 bg-primary rounded-full" style="width: 75%;"></div>
+</div>
+<span class="text-xs text-[#877564] text-right font-medium">75%</span>
+<span class="text-sm font-semibold">4</span>
+<div class="h-3 w-full rounded-full neumorph-inset overflow-hidden flex items-center px-0.5">
+<div class="h-1.5 bg-primary rounded-full" style="width: 15%;"></div>
+</div>
+<span class="text-xs text-[#877564] text-right font-medium">15%</span>
+<span class="text-sm font-semibold">3</span>
+<div class="h-3 w-full rounded-full neumorph-inset overflow-hidden flex items-center px-0.5">
+<div class="h-1.5 bg-primary rounded-full" style="width: 5%;"></div>
+</div>
+<span class="text-xs text-[#877564] text-right font-medium">5%</span>
+<span class="text-sm font-semibold">2</span>
+<div class="h-3 w-full rounded-full neumorph-inset overflow-hidden flex items-center px-0.5">
+<div class="h-1.5 bg-primary rounded-full" style="width: 3%;"></div>
+</div>
+<span class="text-xs text-[#877564] text-right font-medium">3%</span>
+<span class="text-sm font-semibold">1</span>
+<div class="h-3 w-full rounded-full neumorph-inset overflow-hidden flex items-center px-0.5">
+<div class="h-1.5 bg-primary rounded-full" style="width: 2%;"></div>
+</div>
+<span class="text-xs text-[#877564] text-right font-medium">2%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Chips Section -->
+<section class="overflow-x-auto no-scrollbar py-2">
+<div class="flex gap-4 min-w-max px-1">
+<button class="px-5 py-2 rounded-full text-sm font-bold neumorph-chip-active">Latest</button>
+<button class="px-5 py-2 rounded-full text-sm font-medium neumorph-chip text-[#877564]">Highest Rated</button>
+<button class="px-5 py-2 rounded-full text-sm font-medium neumorph-chip text-[#877564]">Lowest Rated</button>
+<button class="px-5 py-2 rounded-full text-sm font-medium neumorph-chip text-[#877564]">With Photos</button>
+</div>
+</section>
+<!-- Section Header -->
+<section>
+<h3 class="text-lg font-bold px-1">Customer Feedback</h3>
+</section>
+<!-- Reviews List (Scrollable) -->
+<section class="space-y-6">
+<!-- Review 1 -->
+<div class="glass-card rounded-xl p-5 border border-white/40 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full border-2 border-white/50 bg-cover bg-center neumorph-outset" data-alt="Portrait of a woman smiling outdoors" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgLn5Myp7frwudnkq5fBS4QeK54sDDoXYF7zh2YwXLNosVxsdB6mpN7CVTI7Q5ZPnH32DA1w2JG-G6xtqRyQRdiV7TYlDixLKmtJMLPo3P9maPqfjicLgs2mzFafG2trPlTNRJ1dd-9xkgGOH-xd7vFAvjdpZRLo01_QZfOZICLB0DFhjf3FnJas8ckOiuLg8RUZ0pjHHzDiQh4oMMP80AjGfECV6mzqxv2-UDoDNo1RRGVDQ4FuG7NNvzGrvAsdYVc6iJx-3hUcc');"></div>
+<div>
+<p class="font-bold text-[#171411]">Sarah Jenkins</p>
+<p class="text-xs text-[#877564]">2 hours ago</p>
+</div>
+</div>
+<div class="flex gap-0.5 bg-white/30 px-2 py-1 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+</div>
+</div>
+<p class="mt-4 text-sm leading-relaxed text-[#4a3f35]">
+                    The food was absolutely delicious and arrived piping hot! The packaging was also very eco-friendly. Highly recommend the spicy ramen.
+                </p>
+<div class="mt-5 flex items-center justify-between">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span class="text-xs font-semibold">12</span>
+</button>
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span class="text-xs font-semibold">2</span>
+</button>
+</div>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-white neumorph-btn-orange flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="glass-card rounded-xl p-5 border border-white/40 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full border-2 border-white/50 bg-cover bg-center neumorph-outset" data-alt="Portrait of a man with a beard smiling" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUgOryo30wCPafzKAGYWJyxuE_Mc-rE5LPnPkCT7Nq5p-rOmAZOyS5bEnjGwecUg_gAn9wShTf4SIyLuptUAetAIZJsJCtjkd33bJEL3RCJ7eTyOtdkqsZs9dFvbk03gM1qNCJ9wLq4RbmBOCg83wi0uYbgFgp20YuLzKlR-PTZLh-oANW3_6pH_gVIBtws3FzpVl2u7h_Mz77T4gwRQU90-vx-oiMQBbFZ213q5p6MB_cyPLIxr1szsJuUZkIf0hh9sI76Yq-w6g');"></div>
+<div>
+<p class="font-bold text-[#171411]">Michael Chen</p>
+<p class="text-xs text-[#877564]">Yesterday</p>
+</div>
+</div>
+<div class="flex gap-0.5 bg-white/30 px-2 py-1 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-[#cdc4bc] text-[14px]">star</span>
+</div>
+</div>
+<p class="mt-4 text-sm leading-relaxed text-[#4a3f35]">
+                    Great taste, but the delivery took about 10 minutes longer than estimated. Still worth it for the quality of the sushi and the fresh ginger.
+                </p>
+<div class="mt-5 flex items-center justify-between">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span class="text-xs font-semibold">8</span>
+</button>
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span class="text-xs font-semibold">0</span>
+</button>
+</div>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-white neumorph-btn-orange flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="glass-card rounded-xl p-5 border border-white/40 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full border-2 border-white/50 bg-cover bg-center neumorph-outset" data-alt="Candid portrait of a young woman laughing" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlesEoFXpU8gb3YyNQIduJxE8Z-UTnsIYnknbXdbfR0UkC0UU8ckFbaR7rKwTyRP2cZd2_HBlrD4yAfb5b2zhuecDsr4dUHNWKfLIpdPbOta85CRq6TL7-D4lUFhBF0wtijt9p7XZEhmPsIGDVNmCxLOSNpgJ5Kg6vWkEJzcO3JzewwaKrD_Nz_x1v75feppI7oHG2Gv43k0ypTurtjJl__F668y6gv-29VeS3whdy_9HbSJ-1AggN8F_0JuILr-A4cDYVc51ZYqQ');"></div>
+<div>
+<p class="font-bold text-[#171411]">Elena Rodriguez</p>
+<p class="text-xs text-[#877564]">2 days ago</p>
+</div>
+</div>
+<div class="flex gap-0.5 bg-white/30 px-2 py-1 rounded-full backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-1">star</span>
+</div>
+</div>
+<p class="mt-4 text-sm leading-relaxed text-[#4a3f35]">
+                    Best burger in town! The soft orange dipping sauce is a game changer. Will definitely be ordering again for our next team lunch.
+                </p>
+<!-- Image attachment in review -->
+<div class="mt-4 flex gap-2 overflow-x-auto">
+<div class="w-24 h-24 rounded-lg bg-cover bg-center border border-white/60 shrink-0" data-alt="Juicy gourmet burger with cheese and lettuce" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPv9IXgotWRpJ3FOaMdgYZSoLax5SW6bNCv6QhHDXK2OMyCKB6zTkBgl6l6vQEofIYwsnogmRvT5tPUN_5q5bX9AkDIr8vB-2kzPX39eBJTYZ7K1aZnsK3tukx2IItf6QOT9di2AGJ3kXIr0TMTVEcFkSsvQe3BRikGPuQnXD33LmFm8tEGtA186D7q9NtYQQCKGoz2C52PgxWxpsjaFwwpewDVQLKicRrIz9NImEe-wc6Nk_VgfqsnF-0dhFwflfVgikh3-x8d8I');"></div>
+<div class="w-24 h-24 rounded-lg bg-cover bg-center border border-white/60 shrink-0" data-alt="Basket of crispy golden french fries" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0bu2toKwOxb7HW6aCfV_vE9iEvzg_ROhhHaiM8bZYVwOwZ2nxs4Zx8lpI61bYcFq9vP_HmpKRGV8HPChhOLo_Xm2h6BNMSlKs6vS4DJdlSpkuRLgXFWLIJvJXOedIHUxxfQG6-6Wn7r8KNFyzhVgeCG2BmUPaDsV_qaYCCi8sfDcQRq53PPYR-ytpn0hjAtKd-C9NyKOsjx0fi-U-gPtwjqXXwwDMaHJb7K9ETEoq_Nmg_oejL6Jz0l7XoXL7dIqWObfuVetYUEI');"></div>
+</div>
+<div class="mt-5 flex items-center justify-between">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span class="text-xs font-semibold">24</span>
+</button>
+<button class="flex items-center gap-1.5 text-[#877564]">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span class="text-xs font-semibold">4</span>
+</button>
+</div>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-white neumorph-btn-orange flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+                        Reply
+                    </button>
+</div>
+</div>
+</section>
+<!-- Spacer for iOS home indicator -->
+<div class="h-8"></div>
+</main>
+<!-- Bottom Navigation Mockup -->
+<nav class="fixed bottom-0 w-full glass-card border-t border-white/50 px-8 py-4 flex justify-between items-center z-50 rounded-t-xl">
+<span class="material-symbols-outlined text-primary fill-1">home</span>
+<span class="material-symbols-outlined text-[#877564]">search</span>
+<div class="relative">
+<span class="material-symbols-outlined text-[#877564]">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</div>
+<span class="material-symbols-outlined text-[#877564]">favorite</span>
+<span class="material-symbols-outlined text-[#877564]">person</span>
+</nav>
+</body></html>

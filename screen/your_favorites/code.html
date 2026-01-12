@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Favorites</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec13",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102210",
+              "glass-white": "rgba(255, 255, 255, 0.45)",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            boxShadow: {
+              'neu-flat': '6px 6px 12px #e1e3e1, -6px -6px 12px #ffffff',
+              'neu-pressed': 'inset 4px 4px 8px #bec1be, inset -4px -4px 8px #ffffff',
+              'neu-sm': '3px 3px 6px #e1e3e1, -3px -3px 6px #ffffff',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f0f4f0 0%, #fefefe 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111811]">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 px-4 py-4 flex items-center justify-between glass-card">
+<div class="w-10 h-10 flex items-center justify-center rounded-xl shadow-neu-sm bg-background-light">
+<span class="material-symbols-outlined text-[#111811]">arrow_back_ios_new</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight text-[#111811]">Your Favorites</h2>
+<div class="w-10 h-10 flex items-center justify-center rounded-xl shadow-neu-sm bg-background-light">
+<span class="material-symbols-outlined text-[#111811]">search</span>
+</div>
+</div>
+<main class="pb-12">
+<!-- Section: Favorite Dishes -->
+<div class="pt-6">
+<div class="flex items-center justify-between px-6 mb-4">
+<h3 class="text-lg font-bold tracking-tight">Favorite Dishes</h3>
+<span class="text-primary text-sm font-semibold">View All</span>
+</div>
+<div class="flex overflow-x-auto custom-scroll gap-4 px-6">
+<!-- Dish Card 1 -->
+<div class="min-w-[180px] glass-card rounded-xl p-3 mb-4">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-cover bg-center" data-alt="Fresh salmon poke bowl with vegetables" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAGmEPyhawChzWSfzbFWrrQ-2VGivxSLg5Iqh38PW_hJlSu9M4UZU8NIZ2m3o_5c4Rurim_Xa82UrqBmumYI-50DdhBKHyxpq9SEoFP-XnwpI0_2ljcDKoo4w5JzwiBpOVBcyC2xr3SzRPk1s-q5CgTUV-e61GB8G8M1wqOz_-0C2JenWvHqMvPfcnCFdEtUTCcMvTZ5TjyxjSmx_zVIMHL2zFia0xUC61avi_fKDbwJSNUpWhLRMlRcxD1mfAK9LdgWCPRo4xB_n0');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<p class="font-bold text-sm line-clamp-1">Salmon Poke Bowl</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary font-bold text-xs">$14.50</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.8</span>
+</div>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="min-w-[180px] glass-card rounded-xl p-3 mb-4">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-cover bg-center" data-alt="Gourmet cheese pizza with basil leaves" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0v3PsNF-WXE_8Cx9eiWxqlVgE4j7WLcIdro9Qimjb_2y_LMn4S9y9ct8FHUdDoY0MlgNYET4MwDLXPSYhxdknZI47EygFF9gAtyl_WRh_mugLrthcmECKMmrEd2Fe9B09mSAao6m7DKNK8lcw6nTudz36ZG6MUPq57viSBN3cRLgiM-uzzE2ZqKo5go3KTW2Ud4NsvY0xQgc5fHCI7MEbLxtq9FF5aRgtalfJP5Xho0PzJlekoUm9_b47zM-9TLSviKk22SUCpYM');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<p class="font-bold text-sm line-clamp-1">Margherita Basil</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary font-bold text-xs">$12.00</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.9</span>
+</div>
+</div>
+</div>
+<!-- Dish Card 3 -->
+<div class="min-w-[180px] glass-card rounded-xl p-3 mb-4">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden mb-3 bg-cover bg-center" data-alt="Stacks of fluffy pancakes with syrup" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6PFzD7me97_Q6_sT6BU2hT4b_TJfTjr5K61f9wkQNixTwRAfO2A-P2TxJLg0dQnvQGMIU5kvXhTgxU2l8f9_fZeA68SpycQrMSXIQiW4BjD5Ii0vadVZ_Cn8mQzDUsmnbqLRQRbTlbb0gQbryhRppld-beHnyaX2bHAlROVUfgIw7xIUpIElmHPfpExmAQp6S0M3byEcDK23_i4O4FpLsBGV9GGD1v0qCsd3Yejld_F999Rs-xvbo8dilvDbffSvSKoZW1kctZ1g');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<p class="font-bold text-sm line-clamp-1">Maple Fluff Stack</p>
+<div class="flex items-center justify-between mt-1">
+<p class="text-primary font-bold text-xs">$9.50</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.7</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Favorite Restaurants -->
+<div class="mt-8 px-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold tracking-tight">Favorite Restaurants</h3>
+<span class="material-symbols-outlined text-[#618961]">tune</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Restaurant Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col p-2">
+<div class="relative h-32 w-full rounded-lg overflow-hidden bg-cover bg-center" data-alt="Modern upscale restaurant interior" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtJGCRdYKpJPbr7o1tBwa7kPlrT-uxyQMT2j6jzcUwRmfv2MOw31HMSK2O40-vuxe_i0qdBiC87k2dq0SbkzsmlYVYnfaVHoA4QuqNHT9ZLsPp0ObZo2WD311S5AXGlSLWHBXhzom5XudYIH1FZHGOoo7XMoT0c9b9MzoPsnYskFn453nMS6-xSC92O5yhFH4na_PT9eF4mchKDQikVjvduRebNH6OSxKft6QzlnX5-kYiuSBDML-Ndq2vZ-dAvwJ0T_7QVbdCZ5Y');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<div class="p-2">
+<h4 class="font-bold text-sm">Green Garden Bistro</h4>
+<p class="text-[10px] text-[#618961] font-medium uppercase tracking-wider">Organic • Healthy</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1">schedule</span>
+<span class="text-[10px] font-semibold">20-30 min</span>
+</div>
+</div>
+</div>
+<!-- Restaurant Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col p-2">
+<div class="relative h-32 w-full rounded-lg overflow-hidden bg-cover bg-center" data-alt="Traditional Italian pasta restaurant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGB8jY_z_yzZPQt_KII51PjPDNceW-pm4VrE8Q-dO0IIMuSiKG-dp6Nj5gpC-s8_GG5qGrW1lhxjraq9MpVjvTRTAq3lftF8Qdyi4JEE7zYJOB4S-9trxR4WycgR7Y-RVg3nL-2xjr0UN71oRlGE4tZveibzzGmBRLWWVlbdjB0k8dTGH-rT3J0hfSuZOrjyIyHn4RLGf1pdN9Q24kL2JzP2w990m1Bs6pFIRTnafPblGttHsk-2CMj5APBj9vcRHNsStY4OYvo6c');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<div class="p-2">
+<h4 class="font-bold text-sm">Pasta Palace</h4>
+<p class="text-[10px] text-[#618961] font-medium uppercase tracking-wider">Italian • Pasta</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1">schedule</span>
+<span class="text-[10px] font-semibold">15-25 min</span>
+</div>
+</div>
+</div>
+<!-- Restaurant Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col p-2">
+<div class="relative h-32 w-full rounded-lg overflow-hidden bg-cover bg-center" data-alt="Japanese sushi bar counter" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD19SxHnaqTw4qbuxOQIPl-ODnfic2P_IKmdlm7RH3fbZBk-XPvY5kPE5AxHf_Hvng-yLet1cRF-zcb2yWGE0lrVExi8ZtRSiqRamXHyM_23nOeYOmiIUzDN_VxsqfDi09AhcFGRq4K9jP-e6ErI1qfpjwqZ7rM1UyNT_yjnWeK8MKl1jdQ2BFBdOMXg6-q2boxjo4qmwxBBqEN56zkRahcbeAp2ORUBPUAewIlw2FESM2bE__yzyKnC_44e08nX5TaX71v9icTkfY');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<div class="p-2">
+<h4 class="font-bold text-sm">Sushi Zen</h4>
+<p class="text-[10px] text-[#618961] font-medium uppercase tracking-wider">Japanese • Sushi</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1">schedule</span>
+<span class="text-[10px] font-semibold">30-40 min</span>
+</div>
+</div>
+</div>
+<!-- Restaurant Card 4 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col p-2">
+<div class="relative h-32 w-full rounded-lg overflow-hidden bg-cover bg-center" data-alt="Juicy gourmet burger on a board" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkryQ8f4PsNdyvolQHRBoWgRUMbWgtDyFNAlQIxK4uku0jbUHKyLGd6EEVVWNoYq698B9k58771vNJmKnsVGIl7Bc9G4p5bWLRw1BuF1AbzluERa76zWa7qSR2dqbGILpMAcwz8Nk6iHAO1GA4rYw7qEykVyMGPmgVYg_a_tu3YzlOSmDiJsbNtcd0Dx025lLBgX9tmZd-4K6ZgCrz1y-8PLDOR8V_dyUPpijOIji6RI_wnib09FEq9-8H3nLmlloFDS4RbwVl9OQ');">
+<div class="absolute top-2 right-2 w-8 h-8 rounded-full bg-background-light flex items-center justify-center shadow-neu-pressed">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+</div>
+<div class="p-2">
+<h4 class="font-bold text-sm">Burger House</h4>
+<p class="text-[10px] text-[#618961] font-medium uppercase tracking-wider">Fast Food • Grill</p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1">schedule</span>
+<span class="text-[10px] font-semibold">10-20 min</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Empty State Preview (Subtle hint at bottom) -->
+<div class="mt-12 px-6 flex flex-col items-center">
+<div class="w-24 h-24 glass-card rounded-full flex items-center justify-center mb-4 shadow-neu-flat">
+<span class="material-symbols-outlined text-4xl text-[#111811]/20">restaurant</span>
+</div>
+<h4 class="text-sm font-bold text-[#111811]/40">Discover more cravings</h4>
+<button class="mt-4 px-8 py-3 rounded-full shadow-neu-flat bg-background-light text-primary font-bold text-sm active:shadow-neu-pressed transition-all">
+                Explore Menu
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-0 right-0 h-20 glass-card border-t border-white/40 flex items-center justify-around px-4 pb-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[#111811]/40">home</span>
+<span class="text-[10px] font-bold text-[#111811]/40 mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[#111811]/40">search</span>
+<span class="text-[10px] font-bold text-[#111811]/40 mt-1">Search</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">favorite</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-primary mt-1">Favorites</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[#111811]/40">shopping_bag</span>
+<span class="text-[10px] font-bold text-[#111811]/40 mt-1">Orders</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[#111811]/40">person</span>
+<span class="text-[10px] font-bold text-[#111811]/40 mt-1">Profile</span>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#111811]/10 rounded-full"></div>
+</body></html>

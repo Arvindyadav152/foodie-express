@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "soft-red": "#ff6b6b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-flat {
+            background: #f6f8f6;
+            box-shadow: 6px 6px 12px #e1e3e1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f6f8f6;
+            box-shadow: inset 4px 4px 8px #e1e3e1, inset -4px -4px 8px #ffffff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, #f6f8f6 0%, #ffffff 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gradient-soft min-h-screen font-display text-[#111813]">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex h-10 w-10 items-center justify-center rounded-full neumorphic-flat cursor-pointer">
+<span class="material-symbols-outlined text-lg">arrow_back_ios_new</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">Order History</h1>
+<div class="h-10 w-10 flex items-center justify-center">
+<!-- Placeholder for alignment -->
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 pb-24">
+<!-- Neumorphic Filter Chips -->
+<div class="flex gap-4 py-6 overflow-x-auto no-scrollbar">
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl px-6 neumorphic-inset text-primary font-semibold text-sm">
+                All
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl px-6 neumorphic-flat text-[#61896f] font-medium text-sm">
+                Completed
+            </button>
+<button class="flex h-10 shrink-0 items-center justify-center rounded-xl px-6 neumorphic-flat text-[#61896f] font-medium text-sm">
+                Cancelled
+            </button>
+</div>
+<!-- Orders List -->
+<div class="flex flex-col gap-6">
+<!-- Order Card 1: Delivered -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="h-12 w-12 rounded-xl bg-center bg-cover border border-white/40" data-alt="Burger King logo on a green background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtm1x2owIAQhQIgvFZeKS_91f6TwSTYSU-oLPQKhbkPzk_s2KpOmMGAwTVIYYvmQXy51UvNgZw0V363_I9i_LVZVVcPbmZTmwY1ZrA7pQ01c03_kHMYv8_E1AA8tNfQFsQBpueqLdMuUjigYu6yiz7oa8uHBlHLgy14aSFGApFU9-44v6ZB1gdXM5kkp71-lO6y605ThfjyrihuiftofDFGNpGPypNuTDHd6pzl4UDGFAo7c7ZOorG08IwYNFcb1iSndA53ZcCB5c')"></div>
+<div>
+<p class="font-bold text-base leading-tight">Burger King</p>
+<p class="text-[#61896f] text-xs mt-1">Oct 12, 2023 • 12:45 PM</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold text-xs uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-md">Delivered</span>
+<p class="font-bold text-lg mt-1">$24.50</p>
+</div>
+</div>
+<div class="h-[1px] bg-white/30 w-full"></div>
+<div class="flex justify-between items-center">
+<p class="text-xs text-[#61896f]">2 items • Paid via Apple Pay</p>
+<button class="neumorphic-flat h-10 px-6 rounded-xl text-sm font-bold text-primary active:shadow-inner transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Reorder
+                    </button>
+</div>
+</div>
+<!-- Order Card 2: Delivered -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="h-12 w-12 rounded-xl bg-center bg-cover border border-white/40" data-alt="Pizza Hut logo with a slice of pizza" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgXQcWo4Stc2xNl7JOGi8NDN7SHKY44S98SS2ZLqmlfgOEhI4K7koSdm-1tU0TtD1fa2yhETTqjl9pfIr4tI31ba9DAo72hxVQ7Wtr7-t5WiQq3bjFJJ9KvgMbS7ZvwxeHu-S7WiqruM9msig4nGgw94gc0zWguuI5UJA0u7LWPQ0OXc9r7FNnEQ8z3NhPaMboEB0Nwh-Y6wt7sB-Wai_WRYSLtm_BEQUrPfpOUPGX4hnYYzcqTq29NGu-57Ci2GDXkuPBPfizmu4')"></div>
+<div>
+<p class="font-bold text-base leading-tight">Pizza Hut</p>
+<p class="text-[#61896f] text-xs mt-1">Oct 05, 2023 • 07:20 PM</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold text-xs uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-md">Delivered</span>
+<p class="font-bold text-lg mt-1">$38.00</p>
+</div>
+</div>
+<div class="h-[1px] bg-white/30 w-full"></div>
+<div class="flex justify-between items-center">
+<p class="text-xs text-[#61896f]">3 items • Paid via Mastercard</p>
+<button class="neumorphic-flat h-10 px-6 rounded-xl text-sm font-bold text-primary active:shadow-inner transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Reorder
+                    </button>
+</div>
+</div>
+<!-- Order Card 3: Cancelled -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-4 shadow-sm opacity-90">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="h-12 w-12 rounded-xl bg-center bg-cover border border-white/40" data-alt="Sushi Zen logo with minimalist wave" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJn7yzBItGC9MOs805OFC1tpLbiwNdw2ca_jTvfTvQSlStv41_yfotVwx0g8hnmjH97TygPhjkydVzmJM2zGBml12WuZtiy43d99A4xsi_u914g5WKJ9RYR73rZjjg-yw--h9s3FGTlCG3AWmc901SRY-wqYIZfnoqpuV7IrYgymi7Yj3_QAuV6_FVex3aC_PexWhDhe4vXPst0Bhf2-PyhopVEFsHitVl3K-yqn6WRqL1n5mKhLZb_irWePqueownNqrfX_f3KlE')"></div>
+<div>
+<p class="font-bold text-base leading-tight">Sushi Zen</p>
+<p class="text-[#61896f] text-xs mt-1">Sep 28, 2023 • 01:15 PM</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-soft-red font-bold text-xs uppercase tracking-wider bg-soft-red/10 px-2 py-1 rounded-md">Cancelled</span>
+<p class="font-bold text-lg mt-1 text-[#61896f] line-through">$52.20</p>
+</div>
+</div>
+<div class="h-[1px] bg-white/30 w-full"></div>
+<div class="flex justify-between items-center">
+<p class="text-xs text-[#61896f]">5 items • Refunded to Original Method</p>
+<button class="neumorphic-flat h-10 px-6 rounded-xl text-sm font-bold text-primary active:shadow-inner transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Reorder
+                    </button>
+</div>
+</div>
+<!-- Order Card 4: Delivered -->
+<div class="glass-card rounded-2xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="h-12 w-12 rounded-xl bg-center bg-cover border border-white/40" data-alt="Salad bar logo with fresh greens" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDY_LgN3FS0R1E3cM6esE2Y0Cai3hbHStdO39Nso3IxliE-Ncah8fWnbypKDKWCygMkvmGI1RTaZ-WxtbPF4A_1V_iWjH-y3CpUg3k0R_iw4nnYkaKaDYvrcScTx8vVv3-uNr3HCDw0pNBOMcHLI4ttBGIu65qdMxMLeZT937a8uQpnuKhomKG8flCd9k_ug_ACiM2UGlldR8iVuagFZEXKeU7UEziCG5_zy_Yc8Hw2dTJBO5Gp0YMt8s2t8qqjmyCaJIM-1YCEyrs')"></div>
+<div>
+<p class="font-bold text-base leading-tight">Green Garden</p>
+<p class="text-[#61896f] text-xs mt-1">Sep 20, 2023 • 08:30 AM</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold text-xs uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-md">Delivered</span>
+<p class="font-bold text-lg mt-1">$18.25</p>
+</div>
+</div>
+<div class="h-[1px] bg-white/30 w-full"></div>
+<div class="flex justify-between items-center">
+<p class="text-xs text-[#61896f]">1 item • Paid via Visa</p>
+<button class="neumorphic-flat h-10 px-6 rounded-xl text-sm font-bold text-primary active:shadow-inner transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                        Reorder
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Tab Bar Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-white/40 px-6 py-3 flex justify-between items-center z-50 rounded-t-3xl shadow-lg">
+<div class="flex flex-col items-center gap-1 text-[#61896f]">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#61896f]">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-medium">Search</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">receipt_long</span>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#61896f]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</body></html>

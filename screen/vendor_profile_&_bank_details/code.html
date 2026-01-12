@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Profile &amp; Bank Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .neumorphic-inset {
+            background: #f0f2f5;
+            box-shadow: inset 4px 4px 8px #d1d9e6, 
+                        inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-raised {
+            background: #f0f2f5;
+            box-shadow: 6px 6px 12px #d1d9e6, 
+                        -6px -6px 12px #ffffff;
+        }
+        .neumorphic-button {
+            background: #ee8c2b;
+            box-shadow: 4px 4px 10px rgba(238, 140, 43, 0.4), 
+                        -4px -4px 10px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen pb-24">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 glass px-4 py-4 flex items-center justify-between">
+<button class="w-10 h-10 flex items-center justify-center rounded-full neumorphic-raised">
+<span class="material-symbols-outlined text-[#181411]">arrow_back_ios_new</span>
+</button>
+<h2 class="text-[#181411] text-lg font-bold">Vendor Profile</h2>
+<button class="w-10 h-10 flex items-center justify-center rounded-full neumorphic-raised">
+<span class="material-symbols-outlined text-[#181411]">more_horiz</span>
+</button>
+</div>
+<!-- Profile Header (Glassmorphic Card) -->
+<div class="px-4 mt-6">
+<div class="glass rounded-xl p-6 flex flex-col items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-28 w-28 border-4 border-white shadow-lg" data-alt="Modern restaurant logo with minimalist sun icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEt6FlOChpN0wNtrf8bySVhed_12pOLz0FlR50JicijA_Y18R_EeUF5nf0402DaL8mr-5yAEXHCXhM8QGhhSPeJgQgnf9MPNnBKNh42fHZ0mHSVHnfpXjVQaRutCBAXhvV7pY7-Bg1z1ak-pDp-WDvaePFaojD06Eboo5CGjAvHFm5h-nmmd8ZaOixs9L9r6Dt3dbonqpNg1jWmcZISbdBoRXw4VNcDym9W2j-MtjrbIguUimo73J6fT8haMSn3-MYidAxW0JR-mg");'>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+</div>
+<div class="text-center">
+<h1 class="text-[#181411] text-2xl font-bold tracking-tight">Sunset Grill &amp; Bistro</h1>
+<div class="mt-2 inline-flex items-center gap-1 bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+                    Verified Vendor
+                </div>
+</div>
+</div>
+</div>
+<!-- Restaurant Information Section -->
+<div class="px-4 mt-8">
+<div class="glass rounded-xl p-4">
+<h2 class="text-[#181411] text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">storefront</span>
+                Restaurant Information
+            </h2>
+<div class="space-y-5">
+<!-- Address -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Business Address</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#897561] text-xl">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Enter address" type="text" value="123 Ocean Drive, Sunset Beach, CA"/>
+</div>
+</div>
+<!-- Contact -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Contact Number</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#897561] text-xl">call</span>
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Phone number" type="tel" value="+1 (555) 012-3456"/>
+</div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Email Address</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#897561] text-xl">mail</span>
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Email address" type="email" value="contact@sunsetgrill.com"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bank Details Section -->
+<div class="px-4 mt-6">
+<div class="glass rounded-xl p-4">
+<h2 class="text-[#181411] text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+                Bank Details
+            </h2>
+<div class="space-y-5">
+<!-- Account Name -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Account Holder Name</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3">
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Full name" type="text" value="Sunset Grill Hospitality LLC"/>
+</div>
+</div>
+<!-- Account Number -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Account Number</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3">
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Account number" type="text" value="**** **** 8829"/>
+</div>
+</div>
+<!-- Bank Code -->
+<div class="flex flex-col gap-2">
+<label class="text-[#181411] text-sm font-semibold ml-1">Bank Name / Swift Code</label>
+<div class="neumorphic-inset rounded-lg px-4 py-3">
+<input class="bg-transparent border-none focus:ring-0 p-0 text-[#181411] text-base w-full placeholder:text-[#897561]" placeholder="Bank details" type="text" value="JP Morgan Chase (CHASUS33)"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Save Button -->
+<div class="px-4 mt-10 mb-8">
+<button class="w-full h-14 neumorphic-button text-white text-lg font-bold rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">save</span>
+            Save Changes
+        </button>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 h-20 glass border-t border-white/30 flex items-center justify-around px-6 pb-2">
+<button class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<div class="neumorphic-raised w-10 h-10 flex items-center justify-center rounded-xl mb-1 -mt-4 bg-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#897561]">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</div>
+</body></html>

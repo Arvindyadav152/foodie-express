@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search &amp; Filters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-inset {
+            background: #f6f8f6;
+            box-shadow: inset 4px 4px 8px #d9dbd9, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-flat {
+            background: #f6f8f6;
+            box-shadow: 6px 6px 12px #d9dbd9, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-pressed {
+            background: #13ec13;
+            box-shadow: inset 4px 4px 8px #10c810, inset -4px -4px 8px #16ff16;
+        }
+        .glassmorphic {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#111811]">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-br from-[#f6f8f6] to-[#e2e8e2] dark:from-[#102210] dark:to-[#081208]">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-full neumorphic-flat">
+<span class="material-symbols-outlined text-[#111811]">arrow_back</span>
+</div>
+<h2 class="text-[#111811] text-lg font-bold leading-tight tracking-tight flex-1 text-center">Search Results</h2>
+<div class="flex size-12 items-center justify-center rounded-full neumorphic-flat">
+<span class="material-symbols-outlined text-[#111811]">notifications</span>
+</div>
+</div>
+<!-- Neumorphic Search Bar -->
+<div class="px-4 py-4">
+<div class="flex items-center gap-3">
+<label class="flex flex-col flex-1 h-14">
+<div class="flex w-full flex-1 items-stretch rounded-2xl h-full neumorphic-inset">
+<div class="flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-[#618961]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 h-full placeholder:text-[#618961] px-4 pl-2 text-base font-medium" placeholder="Search for food or restaurants" value="Burgers"/>
+</div>
+</label>
+<button class="flex size-14 shrink-0 items-center justify-center rounded-2xl neumorphic-flat text-primary">
+<span class="material-symbols-outlined font-bold">tune</span>
+</button>
+</div>
+</div>
+<!-- Neumorphic Filter Chips -->
+<div class="flex gap-4 p-4 overflow-x-auto no-scrollbar">
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-pressed px-4">
+<span class="material-symbols-outlined text-white text-sm">schedule</span>
+<p class="text-white text-sm font-semibold">Under 30 min</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-4">
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+<p class="text-[#111811] text-sm font-medium">Top Rated</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-4">
+<span class="material-symbols-outlined text-primary text-sm">delivery_dining</span>
+<p class="text-[#111811] text-sm font-medium">Free Delivery</p>
+</div>
+<div class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl neumorphic-flat px-4">
+<span class="material-symbols-outlined text-primary text-sm">eco</span>
+<p class="text-[#111811] text-sm font-medium">Vegetarian</p>
+</div>
+</div>
+<!-- Main Content: Glassmorphic Cards -->
+<div class="flex-1 px-4 space-y-6 pb-24">
+<!-- Card 1 -->
+<div class="glassmorphic rounded-3xl overflow-hidden p-3">
+<div class="relative w-full aspect-[16/9] rounded-2xl bg-center bg-cover" data-alt="Juicy gourmet burger with fresh vegetables and fries" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCX2cHQ6oUIerXIz95BkDmufV1rGkYTwa22oki97931FuTxLEBTVMinCKSpXGJcejzc1kU6DPe49wS71JCYKbjJKhZAIHOpBo0r8SOjHXkcTqCWvxUkKhrO6xqGay--d4VlPcbZXKuOML40N4yRQPJ18yR3PoQ20_TXGpPdZHKTumXxB7gkWlMMh42eVHOpL544nFdoRxTGDV5iRUxzaBaumn7m76DazhsT0K8LP747FzzW-WcSg6uFEC7X0PCUYJKWCdrncgKC4CE");'>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        50% OFF
+                     </div>
+</div>
+<div class="flex flex-col gap-2 py-4 px-2">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[#111811] text-xl font-bold">The Burger Joint</p>
+<p class="text-[#618961] text-sm font-medium">American • Burgers • Fast Food</p>
+</div>
+<div class="flex items-center gap-1 bg-white/50 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary fill-1 text-lg">star</span>
+<span class="font-bold text-sm">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[#618961] text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">near_me</span>
+<span>1.2 km</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>15-25 min</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-base">delivery_dining</span>
+<span class="font-semibold">Free</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glassmorphic rounded-3xl overflow-hidden p-3">
+<div class="relative w-full aspect-[16/9] rounded-2xl bg-center bg-cover" data-alt="Premium assorted sushi platter on a wooden board" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbMDyLqtrkrHxMTjqyyXQ2V1_MuwGhQu4XBBndh6g2jZh3_IXrHkNsps5y_h5PUekdwUnE0YO9QCAbbXS0EmKb-2r5_X7rb7FDXNzMoGFk3NLBKrzTJorhPUchU1WgNL_7kry6k1KmqOOYLV0ZQ018p54LynEADdrxML3jSPeYjsyJsBVdnF3cg_e3GjIdW4iqTTFVDnW9o_HOR7M9IPAHWVlGODxlsOVqJzJ_7IIGiQjk_o6yhHtShDROZQzzEfQANt1C-RJAbXc");'>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                        BOGO
+                     </div>
+</div>
+<div class="flex flex-col gap-2 py-4 px-2">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[#111811] text-xl font-bold">Sushi Zen</p>
+<p class="text-[#618961] text-sm font-medium">Japanese • Sushi • Healthy</p>
+</div>
+<div class="flex items-center gap-1 bg-white/50 px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary fill-1 text-lg">star</span>
+<span class="font-bold text-sm">4.9</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[#618961] text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">near_me</span>
+<span>2.5 km</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>30-40 min</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">delivery_dining</span>
+<span>$2.99</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Partially Visible Neumorphic Filter Modal (Bottom Sheet style) -->
+<div class="fixed bottom-0 left-0 right-0 glassmorphic rounded-t-[40px] border-t border-white/40 shadow-2xl p-6 pb-10 translate-y-2/3">
+<div class="w-12 h-1.5 bg-[#d9dbd9] rounded-full mx-auto mb-8"></div>
+<h3 class="text-xl font-bold mb-6">Filters</h3>
+<!-- Price Range Neumorphic Slider -->
+<div class="mb-8">
+<div class="flex justify-between mb-4">
+<p class="font-semibold">Price Range</p>
+<p class="text-primary font-bold">$$ - $$$</p>
+</div>
+<div class="relative h-6 flex items-center">
+<div class="w-full h-3 neumorphic-inset rounded-full relative">
+<div class="absolute left-[30%] right-[20%] h-full bg-primary/40 rounded-full"></div>
+<div class="absolute left-[30%] -top-1.5 size-6 rounded-full neumorphic-flat border-2 border-primary"></div>
+<div class="absolute right-[20%] -top-1.5 size-6 rounded-full neumorphic-flat border-2 border-primary"></div>
+</div>
+</div>
+</div>
+<!-- Cuisine Checkboxes -->
+<div class="mb-8">
+<p class="font-semibold mb-4">Cuisines</p>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/20 border border-white/40">
+<div class="size-6 rounded-md neumorphic-inset flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+</div>
+<span class="text-sm font-medium">Italian</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/20 border border-white/40">
+<div class="size-6 rounded-md neumorphic-inset"></div>
+<span class="text-sm font-medium">Mexican</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/20 border border-white/40">
+<div class="size-6 rounded-md neumorphic-inset flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+</div>
+<span class="text-sm font-medium">Japanese</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-white/20 border border-white/40">
+<div class="size-6 rounded-md neumorphic-inset"></div>
+<span class="text-sm font-medium">Thai</span>
+</div>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-white font-bold rounded-2xl shadow-[0_10px_20px_rgba(19,236,19,0.3)] flex items-center justify-center gap-2">
+                Apply Filters
+            </button>
+</div>
+<!-- Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 h-20 glassmorphic flex items-center justify-around px-6 border-t border-white/20">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1">search</span>
+<span class="text-[10px] font-bold">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#618961]">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-bold">Favorites</span>
+</div>
+<div class="relative -top-6 flex size-14 items-center justify-center rounded-full bg-primary shadow-xl shadow-primary/40 border-4 border-background-light">
+<span class="material-symbols-outlined text-white text-3xl">shopping_cart</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#618961]">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#618961]">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

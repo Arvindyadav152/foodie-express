@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Orders</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                        "accent-orange": "#ff8c42",
+                        "neumorph-shadow": "#d1d9e6",
+                        "neumorph-highlight": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-flat {
+            background: #f5f8f5;
+            box-shadow: 6px 6px 12px #e1e4e1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f5f8f5;
+            box-shadow: inset 4px 4px 8px #e1e4e1, inset -4px -4px 8px #ffffff;
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111811] min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-[430px] mx-auto shadow-2xl bg-background-light">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/80 backdrop-blur-md p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 neumorphic-flat p-0.5" data-alt="Vendor profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0ZtzmqTx2S_Bwk-MkDnqVSzmL_pHEm60tiY0CijvqrdQaWdt_vYnKlTuHUuz8a4jNJHIlu7kjl2GN2bk4DXWigeFJ_aJs2RzwMF9_x04Gk_wYrDPr9-r4tJEBMfTri9dwb2ZCVmPhWkdU-UB75hLdaQHi_-bBVkf00Ic-6UBtybSqO3vhF163hwQhFSO4i3U1dQuSNN6QkehAsxaoTG6COftSJw5K9_NVUlGLXXjNYKpQE_XFeD4Ncf-qxulCCnLGCaTDCgHwMSo");'></div>
+</div>
+<h2 class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Vendor Orders</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-full neumorphic-flat text-[#111811]">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+</div>
+</div>
+<!-- SegmentedButtons (Neumorphic Tabs) -->
+<div class="flex px-4 py-4">
+<div class="flex h-12 flex-1 items-center justify-center rounded-xl neumorphic-inset p-1.5 gap-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 bg-white shadow-sm text-[#111811] text-sm font-bold leading-normal transition-all">
+<span class="truncate">New (3)</span>
+<input checked="" class="invisible w-0" name="order-status" type="radio" value="New"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-[#608a60] text-sm font-medium leading-normal hover:text-[#111811] transition-all">
+<span class="truncate">Preparing</span>
+<input class="invisible w-0" name="order-status" type="radio" value="Preparing"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 text-[#608a60] text-sm font-medium leading-normal hover:text-[#111811] transition-all">
+<span class="truncate">Completed</span>
+<input class="invisible w-0" name="order-status" type="radio" value="Completed"/>
+</label>
+</div>
+</div>
+<!-- Orders List Container -->
+<div class="flex flex-col gap-6 p-4">
+<!-- Order Card 1 (New) -->
+<div class="glass-container rounded-xl overflow-hidden p-4 shadow-sm border border-white/50">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-[#111811] text-lg font-bold leading-tight">Order #FD-8821</p>
+</div>
+<p class="text-[#608a60] text-sm font-medium">John Doe • 2 mins ago</p>
+</div>
+<p class="text-[#111811] text-lg font-bold">$24.50</p>
+</div>
+<div class="bg-white/30 rounded-lg p-3 mb-4">
+<ul class="space-y-2">
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">2x Classic Cheeseburger</span>
+<span class="text-[#608a60]">No Onions</span>
+</li>
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">1x Large Sweet Potato Fries</span>
+</li>
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">1x Diet Coke</span>
+</li>
+</ul>
+</div>
+<!-- Neumorphic Button Group -->
+<div class="flex gap-4">
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-primary font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-accent-orange font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+<!-- Order Card 2 (New) -->
+<div class="glass-container rounded-xl overflow-hidden p-4 shadow-sm border border-white/50">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-[#111811] text-lg font-bold leading-tight">Order #FD-8825</p>
+</div>
+<p class="text-[#608a60] text-sm font-medium">Sarah Miller • 5 mins ago</p>
+</div>
+<p class="text-[#111811] text-lg font-bold">$38.90</p>
+</div>
+<div class="bg-white/30 rounded-lg p-3 mb-4">
+<ul class="space-y-2">
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">1x Vegan Buddha Bowl</span>
+<span class="text-[#608a60]">Extra Avocado</span>
+</li>
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">2x Fresh Green Juice</span>
+</li>
+</ul>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-primary font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-accent-orange font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+<!-- Order Card 3 (New) -->
+<div class="glass-container rounded-xl overflow-hidden p-4 shadow-sm border border-white/50 mb-20">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-[#111811] text-lg font-bold leading-tight">Order #FD-8830</p>
+</div>
+<p class="text-[#608a60] text-sm font-medium">Mike Thompson • 8 mins ago</p>
+</div>
+<p class="text-[#111811] text-lg font-bold">$12.00</p>
+</div>
+<div class="bg-white/30 rounded-lg p-3 mb-4">
+<ul class="space-y-2">
+<li class="text-[#111811] text-sm flex justify-between">
+<span class="font-medium">3x Pepperoni Pizza Slices</span>
+</li>
+</ul>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-primary font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+                        Accept
+                    </button>
+<button class="flex-1 h-12 rounded-xl neumorphic-flat flex items-center justify-center gap-2 text-accent-orange font-bold text-sm active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-xl">cancel</span>
+                        Reject
+                    </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] px-6 pb-8 pt-4 bg-background-light/95 backdrop-blur-lg border-t border-white/40 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">list_alt</span>
+<span class="absolute -top-1 -right-1 size-2.5 bg-accent-orange border-2 border-background-light rounded-full"></span>
+</div>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+<span class="text-[10px] font-bold">Menu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</div>
+</body></html>

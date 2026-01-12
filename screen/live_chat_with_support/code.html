@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Live Chat with Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    boxShadow: {
+                        'neu-raised': '6px 6px 12px rgba(0,0,0,0.05), -6px -6px 12px rgba(255,255,255,0.8)',
+                        'neu-inset': 'inset 4px 4px 8px rgba(0,0,0,0.05), inset -4px -4px 8px rgba(255,255,255,0.8)',
+                        'neu-button': '4px 4px 10px rgba(43, 238, 108, 0.2), -4px -4px 10px rgba(255,255,255,0.8)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .neumorphic-bubble-user {
+            background: #2bee6c;
+            box-shadow: 4px 4px 10px rgba(43, 238, 108, 0.25), -4px -4px 10px rgba(255,255,255,0.5);
+        }
+        body {
+            font-family: 'Spline Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-[#111813]">
+<!-- Glassmorphic Top Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-effect rounded-b-lg px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="relative">
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm" data-alt="Support agent profile picture smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnlHcOgCIClg_Ckpls4TFBsT7W30JNTp8DTW6XknQqgdh7GvRrqxilTvKeWlI-Pwlsrk4cBWxjE83RPtXT_NaJE-SlKluou2CmfIsM-xxByxJF0mNNVjeZaEFKf8p_fr8rFemiUaJNUaiFUWZMB5awrSTzHGzbMaPsLTXXu38MZ8g6XJQBzyGqObKNxOuD3FCQ8y-uaFdJ2SqOSbvlvUWvKjR8IQN8b5RdKOkVW36EPxg7EIo03R-RaUbORYlSNlW-gtF_HKEQQAA")'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-primary rounded-full border-2 border-white"></div>
+</div>
+<div>
+<h2 class="text-[#111813] font-bold text-base leading-tight">Sarah from Support</h2>
+<p class="text-[#61896f] text-xs font-medium">Online now</p>
+</div>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined">info</span>
+</button>
+</header>
+<!-- Chat Content -->
+<main class="pt-24 pb-32 px-4 space-y-6 max-w-2xl mx-auto">
+<!-- Section Header -->
+<div class="flex justify-center">
+<span class="text-[#61896f] text-xs font-bold tracking-widest uppercase bg-white/40 px-3 py-1 rounded-full">Today</span>
+</div>
+<!-- Agent Message -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white" data-alt="Support agent Sarah small avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDw_xyDt7WzaEp4ywNSeFv6vgUS-Twt6i0OjnjYRq8n4WcsKRIJNccE5468-nW2np5pbGIm2Of3_wvwNRJjAQmOvSP0MYtQ4y-KHtIXiKf9CUe66grI6q1VNuP8CiYz70FN7ZDNIwFbid2GJJjNBINT1YyWPwB9Qgp8r06OyoznHlD-GkmV0Chidmk-7PMxVdHn5lEw_i97QJvez65ACG1apQIIfvFVVxSSzw3Sm9NR37Yk3k1__2q7SF7oIinPCJnDU6wVZ4FHvg4")'>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[#61896f] text-[11px] font-semibold ml-2">Sarah</span>
+<div class="glass-effect rounded-2xl rounded-bl-none px-4 py-3 shadow-sm">
+<p class="text-sm leading-relaxed text-[#111813]">
+                        Hi there! I'm looking into your order from Joe's Pizza right now. How can I help you today?
+                    </p>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex items-end gap-3 justify-end ml-auto max-w-[85%]">
+<div class="flex flex-col gap-1 items-end">
+<span class="text-[#61896f] text-[11px] font-semibold mr-2">You</span>
+<div class="neumorphic-bubble-user rounded-2xl rounded-br-none px-4 py-3">
+<p class="text-sm leading-relaxed text-black font-medium">
+                        Thanks! The delivery address seems slightly off in the app. Can we update it before the rider leaves?
+                    </p>
+</div>
+</div>
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk44JuFsZPn_m1MpPURnafJaGrsTKd3lf6t4ygeIs6B_wzmAACZBC_Xmql26k8kNhdrFUR7E2GUde8Eq6LEutP2E7HgLFxmBKx3SJUYvYTuvnbkGn6WJeXUZIPLmZrvOpxN1s3gapT3Mi8ujJSP7O5mK16ieb6o1E_kU9hYNwcPcJRCOY3vX3zN1SVH8HTjcARAE_AOONhY9qid_6hBzwmS22eX1MDJdWdtVwbKNHxEyJOl_UKXXQ3wu_ZfDkN2mXIY8KFtGRGZ60")'>
+</div>
+</div>
+<!-- Agent Message -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 border border-white" data-alt="Support agent Sarah small avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBulNemIL0DS-uOPKeo10MQPXvaNSseAIhgIdpgRejdiixFgby-wbWsojakia02NjbHccgnN798IGov8AKI_PTkloLy5fXPtpGA-RL6sojb1dWJMyTAuqd7r4XA2OtkOdD-jD1CO7oQial3yrdlyYgbz-MNgvNwZBo5meNEPRJr4ZaGuKJ4VCuX067VxQxtJM1YVynSfcLloNZv2azpAiwh_Xjl5HR1eXPvFVr6NZ8I5MeDeFKG07AqqdQDFW-gvNqk65hqokvSPS4")'>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[#61896f] text-[11px] font-semibold ml-2">Sarah</span>
+<div class="glass-effect rounded-2xl rounded-bl-none px-4 py-3 shadow-sm">
+<p class="text-sm leading-relaxed text-[#111813]">
+                        I see. Please send me the correct address and I will update it for you immediately. I'll also notify the driver.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Map Snippet (Optional context element) -->
+<div class="flex justify-center py-2">
+<div class="w-full max-w-[280px] h-32 rounded-lg overflow-hidden border-4 border-white shadow-neu-raised">
+<img class="w-full h-full object-cover" data-alt="Map showing current delivery location" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABRJu1GlKw6MjPUedKy1nZlumtJPgyumMEwOfyjv0zkokNFLAlO9nns01CqjCV1VOvFilWcLUOsvUdoSqjUsvQdMak-V3g7A18vYqinAlYSV7GUo1kzsvctpoIz877jyPe2oF0gp1RI9E6XJ0eucjHUBulVMvXHi_JRXrWzcQzD15BDMxtd-HTacpO6RObYKiVv-2LjfyIzluEImBrllcgvYwEq4bJ5jbJpXDsDT-GUQ3YN89vzvi2MW083MdLEov13TpAOOLqwhA"/>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<div class="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-background-light/80 backdrop-blur-md">
+<div class="max-w-2xl mx-auto flex items-center gap-3">
+<!-- Neumorphic Text Field Container -->
+<div class="flex-1 flex items-center bg-background-light rounded-full shadow-neu-inset px-4 py-2 border border-white/50">
+<button class="text-[#61896f] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2 px-3 placeholder-[#61896f]/60 text-[#111813]" placeholder="Type a message..." type="text"/>
+<button class="text-[#61896f] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+</div>
+<!-- Neumorphic Send Button -->
+<button class="size-12 rounded-full bg-white flex items-center justify-center shadow-neu-button text-primary hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined fill-1">send</span>
+</button>
+</div>
+</div>
+</body></html>

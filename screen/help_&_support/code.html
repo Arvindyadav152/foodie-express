@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f0f4f2",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass {
+            background: rgba(16, 34, 22, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neumorphic-out {
+            background: #f0f4f2;
+            box-shadow: 6px 6px 12px #d0d4d2, -6px -6px 12px #ffffff;
+        }
+        .dark .neumorphic-out {
+            background: #102216;
+            box-shadow: 6px 6px 12px #08110b, -6px -6px 12px #183321;
+        }
+        .neumorphic-in {
+            background: #f0f4f2;
+            box-shadow: inset 4px 4px 8px #d0d4d2, inset -4px -4px 8px #ffffff;
+        }
+        .dark .neumorphic-in {
+            background: #102216;
+            box-shadow: inset 4px 4px 8px #08110b, inset -4px -4px 8px #183321;
+        }
+        .neumorphic-btn {
+            background: #13ec5b;
+            box-shadow: 4px 4px 10px rgba(19, 236, 91, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.8);
+        }
+        .dark .neumorphic-btn {
+            background: #13ec5b;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4), -2px -2px 6px rgba(19, 236, 91, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#111813] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden pb-10">
+<!-- Top Navigation -->
+<div class="sticky top-0 z-50 glass flex items-center p-4 justify-between">
+<div class="neumorphic-out size-10 flex items-center justify-center rounded-lg cursor-pointer">
+<span class="material-symbols-outlined text-lg">arrow_back_ios_new</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Help &amp; Support</h2>
+<div class="size-10"></div> <!-- Spacer for symmetry -->
+</div>
+<!-- Hero Card Section -->
+<div class="p-4">
+<div class="glass relative overflow-hidden rounded-xl p-6 shadow-sm border-white/40" data-alt="Abstract soft green gradient background">
+<div class="relative z-10">
+<h1 class="text-3xl font-bold leading-tight mb-2">How can we help?</h1>
+<p class="text-sm font-medium opacity-80 mb-6">Find answers to your questions instantly or chat with us.</p>
+<!-- Neumorphic Search Bar -->
+<div class="px-1 py-1">
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-xl h-14 neumorphic-in">
+<div class="flex items-center justify-center pl-4 text-primary">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 h-full placeholder:text-[#61896f] px-4 text-base font-normal" placeholder="Search for issues, orders..." value=""/>
+</div>
+</label>
+</div>
+</div>
+<!-- Background decoration for glassmorphism -->
+<div class="absolute -right-10 -top-10 size-40 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute -left-10 -bottom-10 size-40 bg-primary/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4 pt-4 flex items-center justify-between">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Top Questions</h3>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">View All</span>
+</div>
+<!-- FAQ List with Glass and Neumorphism -->
+<div class="flex flex-col gap-4 p-4">
+<!-- FAQ Item 1 -->
+<div class="glass flex items-center gap-4 px-4 py-4 rounded-xl border-white/30 cursor-pointer group">
+<div class="neumorphic-out flex items-center justify-center rounded-lg size-11 shrink-0 text-primary">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<p class="text-base font-semibold flex-1 truncate">Track my order</p>
+<div class="neumorphic-out size-8 flex items-center justify-center rounded-lg text-primary/70 group-hover:text-primary">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="glass flex items-center gap-4 px-4 py-4 rounded-xl border-white/30 cursor-pointer group">
+<div class="neumorphic-out flex items-center justify-center rounded-lg size-11 shrink-0 text-primary">
+<span class="material-symbols-outlined">currency_exchange</span>
+</div>
+<p class="text-base font-semibold flex-1 truncate">Refund policy</p>
+<div class="neumorphic-out size-8 flex items-center justify-center rounded-lg text-primary/70 group-hover:text-primary">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="glass flex items-center gap-4 px-4 py-4 rounded-xl border-white/30 cursor-pointer group">
+<div class="neumorphic-out flex items-center justify-center rounded-lg size-11 shrink-0 text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-base font-semibold flex-1 truncate">Payment failed or pending</p>
+<div class="neumorphic-out size-8 flex items-center justify-center rounded-lg text-primary/70 group-hover:text-primary">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="glass flex items-center gap-4 px-4 py-4 rounded-xl border-white/30 cursor-pointer group">
+<div class="neumorphic-out flex items-center justify-center rounded-lg size-11 shrink-0 text-primary">
+<span class="material-symbols-outlined">shopping_basket</span>
+</div>
+<p class="text-base font-semibold flex-1 truncate">Report missing items</p>
+<div class="neumorphic-out size-8 flex items-center justify-center rounded-lg text-primary/70 group-hover:text-primary">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Live Support Card -->
+<div class="p-4 mt-auto">
+<div class="glass rounded-xl p-6 border-white/40">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative">
+<div class="size-14 rounded-full neumorphic-out flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-primary">support_agent</span>
+</div>
+<div class="absolute bottom-0 right-0 size-4 bg-primary border-4 border-white dark:border-background-dark rounded-full"></div>
+</div>
+<div>
+<h4 class="text-lg font-bold">Live Support</h4>
+<p class="text-sm opacity-70">Our agents are online now</p>
+</div>
+</div>
+<button class="w-full h-14 neumorphic-btn rounded-xl flex items-center justify-center gap-2 text-[#111813] font-bold text-lg active:shadow-inner">
+<span class="material-symbols-outlined">chat_bubble</span>
+                    Chat Now
+                </button>
+<p class="text-center text-xs mt-4 opacity-50 font-medium">Average wait time: &lt; 2 mins</p>
+</div>
+</div>
+<!-- Footer Spacer -->
+<div class="h-8"></div>
+</div>
+</body></html>

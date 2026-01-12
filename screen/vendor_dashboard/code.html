@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "accent-orange": "#FF9F43",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-inset {
+            background: #f5f8f5;
+            box-shadow: inset 4px 4px 8px #d1d9d1, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-flat {
+            background: #f5f8f5;
+            box-shadow: 6px 6px 12px #d1d9d1, -6px -6px 12px #ffffff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#111811] dark:text-white">
+<!-- Top Navigation Bar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-white shadow-sm" data-alt="Vendor profile picture smiling chef" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAamLQWH0X69Xu-J3-jhycAXLSPZukw-bNQDpNPIRcoIz6yehIH3xN01UDPLGNQpVSAbHKztuX6rqBVIuBqyAHQ_AnUMerA4S0MRwh--f9W9qAxSIwEpVvNg0L4mlpYpFbA7WS4YrpRvvb22beOcR3CfNTXsx6WZl2Ude-ZY2BQnPknmrPO7PEd4yaRQCvyBygQid18BWrCNkgwNQldBxZQWX5mvBoIaO83hr8g2N2_akObuuIb3y5P7QoXDrrHDXFAZ34DNAy56hM");'>
+</div>
+</div>
+<div class="flex-1 px-3">
+<h1 class="text-[#111811] dark:text-white text-xl font-bold leading-tight tracking-tight">The Green Kitchen</h1>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-xs font-medium">Vendor Dashboard</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-full size-10 neumorphic-flat text-[#111811] dark:text-white">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Shop Status Action Panel (Neumorphic) -->
+<div class="p-4 @container">
+<div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border border-white/40 bg-background-light dark:bg-background-dark p-6 neumorphic-flat @[480px]:flex-row @[480px]:items-center">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<p class="text-[#111811] dark:text-white text-lg font-bold leading-tight">Shop Status</p>
+</div>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-sm font-medium">Currently accepting orders</p>
+</div>
+<label class="relative flex h-[36px] w-[64px] cursor-pointer items-center rounded-full neumorphic-inset p-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-full w-[28px] rounded-full bg-white shadow-lg transition-all peer-checked:translate-x-7 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Quick Stats (Glassmorphic) -->
+<div class="px-4 py-2">
+<div class="grid grid-cols-3 gap-3">
+<div class="glass-card flex flex-col gap-1 rounded-2xl p-4 shadow-sm border border-white/60">
+<span class="material-symbols-outlined text-primary text-xl">shopping_bag</span>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-[11px] font-bold uppercase tracking-wider">Orders</p>
+<div class="flex items-end gap-1">
+<p class="text-[#111811] dark:text-white text-2xl font-bold">24</p>
+<p class="text-primary text-[10px] font-bold pb-1">+12%</p>
+</div>
+</div>
+<div class="glass-card flex flex-col gap-1 rounded-2xl p-4 shadow-sm border border-white/60">
+<span class="material-symbols-outlined text-accent-orange text-xl">payments</span>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-[11px] font-bold uppercase tracking-wider">Earnings</p>
+<div class="flex items-end gap-1">
+<p class="text-[#111811] dark:text-white text-2xl font-bold leading-none">$1.2k</p>
+<p class="text-primary text-[10px] font-bold pb-0.5">+8%</p>
+</div>
+</div>
+<div class="glass-card flex flex-col gap-1 rounded-2xl p-4 shadow-sm border border-white/60">
+<span class="material-symbols-outlined text-yellow-400 text-xl">star</span>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-[11px] font-bold uppercase tracking-wider">Rating</p>
+<div class="flex items-end gap-1">
+<p class="text-[#111811] dark:text-white text-2xl font-bold">4.8</p>
+<p class="text-primary text-[10px] font-bold pb-1">↑</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Revenue Overview Chart -->
+<div class="mt-4 px-4">
+<div class="bg-white/40 dark:bg-white/5 rounded-3xl p-6 border border-white/50 backdrop-blur-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-[#111811] dark:text-white text-lg font-bold">Revenue Overview</h2>
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-xs font-normal">Last 7 days performance</p>
+</div>
+<div class="bg-accent-orange/10 text-accent-orange px-3 py-1 rounded-full text-xs font-bold">
+                    Weekly
+                </div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-baseline gap-2">
+<p class="text-[#111811] dark:text-white tracking-tight text-3xl font-bold">$8,420.50</p>
+<p class="text-primary text-sm font-bold">+15.4%</p>
+</div>
+<div class="relative h-[160px] w-full">
+<svg class="overflow-visible" fill="none" height="140" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18 109 18 21 36 21C54 21 54 41 72 41C90 41 90 93 108 93C127 93 127 33 145 33C163 33 163 101 181 101C199 101 199 61 217 61C236 61 236 45 254 45C272 45 272 121 290 121C308 121 308 149 326 149C344 149 344 1 363 1C381 1 381 81 399 81C417 81 417 129 435 129C453 129 453 25 472 25V149H0V109Z" fill="url(#chart_grad)"></path>
+<path d="M0 109C18 109 18 21 36 21C54 21 54 41 72 41C90 41 90 93 108 93C127 93 127 33 145 33C163 33 163 101 181 101C199 101 199 61 217 61C236 61 236 45 254 45C272 45 272 121 290 121C308 121 308 149 326 149C344 149 344 1 363 1C381 1 381 81 399 81C417 81 417 129 435 129C453 129 453 25 472 25" stroke="#0df20d" stroke-linecap="round" stroke-width="4"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="chart_grad" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#0df20d" stop-opacity="0.2"></stop>
+<stop offset="1" stop-color="#0df20d" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex justify-between mt-4">
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Mon</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Tue</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Wed</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Thu</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Fri</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Sat</p>
+<p class="text-[#608a60] text-[10px] font-bold uppercase tracking-widest">Sun</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Orders List -->
+<div class="px-4 pt-6 pb-24">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-[#111811] dark:text-white text-lg font-bold">Live Orders</h2>
+<button class="text-accent-orange text-sm font-bold">See All</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Order Item 1 -->
+<div class="glass-card flex items-center gap-4 p-4 rounded-2xl shadow-sm border border-white/60">
+<div class="size-12 rounded-full bg-accent-orange/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-accent-orange">restaurant</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="text-[#111811] dark:text-white font-bold text-base">Sarah Johnson</p>
+<p class="text-[#111811] dark:text-white font-bold text-base">$42.50</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-xs">2 Items • 4 mins ago</p>
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">Preparing</span>
+</div>
+</div>
+</div>
+<!-- Order Item 2 -->
+<div class="glass-card flex items-center gap-4 p-4 rounded-2xl shadow-sm border border-white/60">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">lunch_dining</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="text-[#111811] dark:text-white font-bold text-base">Marcus Chen</p>
+<p class="text-[#111811] dark:text-white font-bold text-base">$18.20</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-xs">1 Item • 12 mins ago</p>
+<span class="bg-accent-orange/20 text-accent-orange text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">Ready</span>
+</div>
+</div>
+</div>
+<!-- Order Item 3 -->
+<div class="glass-card flex items-center gap-4 p-4 rounded-2xl shadow-sm border border-white/60 opacity-80">
+<div class="size-12 rounded-full bg-gray-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-500">local_pizza</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="text-[#111811] dark:text-white font-bold text-base">Alice Smith</p>
+<p class="text-[#111811] dark:text-white font-bold text-base">$31.00</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-[#608a60] dark:text-[#a0c0a0] text-xs">3 Items • 25 mins ago</p>
+<span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">Delivered</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- iOS Style Bottom Tab Bar -->
+<div class="fixed bottom-0 left-0 right-0 glass-card border-t border-white/40 pb-6 pt-3 px-6 z-50">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[28px] font-variation-fill-1">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-[28px]">list_alt</span>
+<span class="text-[10px] font-medium">Orders</span>
+</button>
+<button class="flex items-center justify-center size-14 bg-accent-orange rounded-full shadow-lg -mt-10 border-4 border-background-light">
+<span class="material-symbols-outlined text-white text-3xl">add</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-[28px]">inventory_2</span>
+<span class="text-[10px] font-medium">Menu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#608a60]">
+<span class="material-symbols-outlined text-[28px]">insights</span>
+<span class="text-[10px] font-medium">Insights</span>
+</button>
+</div>
+</div>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-black/10 rounded-full z-[60]"></div>
+</body></html>

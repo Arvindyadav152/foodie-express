@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Cart - Food Delivery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df20d",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Neumorphic styles for light mode */
+        .neumorphic-raised {
+            background: #f5f8f5;
+            box-shadow: 6px 6px 12px #d1d4d1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f5f8f5;
+            box-shadow: inset 4px 4px 8px #d1d4d1, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-button-green {
+            background: #0df20d;
+            box-shadow: 4px 4px 10px rgba(13, 242, 13, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.8);
+        }
+        /* Glassmorphism style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111811] min-h-screen">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-[430px] mx-auto bg-background-light dark:bg-background-dark">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 z-50 bg-background-light/80 backdrop-blur-md">
+<div class="text-[#111811] flex size-12 shrink-0 items-center justify-center neumorphic-raised rounded-full cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111811] text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Your Cart</h2>
+</div>
+<div class="flex-1 px-4 py-6 space-y-8">
+<!-- Order Summary Glass Card -->
+<div class="glass-card rounded-xl p-4 shadow-sm">
+<h3 class="text-[#111811] text-lg font-bold leading-tight tracking-[-0.015em] pb-4">Order Summary</h3>
+<div class="space-y-6">
+<!-- Item 1 -->
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0" data-alt="Juicy double cheeseburger with fresh ingredients" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEbGBQjo0TIZzyp588NewjfY6gXbUV8MiCvQK3LOPIhlYzDsQEEpLBEmsBlM-wnOrql6K5dVz-0c2BdYk_hl-0DBicnOQ0P_PQJqqykmcC83SeLKaqLDD9nYp26NtsSU-Z6f8Bf7l3X6rcRzrWKDlYNCL0BFWLQfVPG7p5M5joCCcPG-ALZLpJvEs5M_ei3clq5RAjaHQgUF1fSfwFFfvS-d1AvqLvXu1jPwDZhyAEzNQzwtDvB5zg068D8u5Px0-fdcHlI52-EyY");'>
+</div>
+<div class="flex flex-col flex-1 gap-1">
+<p class="text-[#111811] text-base font-bold leading-tight">Double Cheeseburger</p>
+<p class="text-[#608a60] text-xs font-normal leading-normal">Extra cheese, no onions</p>
+<p class="text-[#111811] text-sm font-bold mt-1">$12.99</p>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-3 text-[#111811] neumorphic-inset p-1 rounded-full">
+<button class="text-sm font-bold flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm cursor-pointer">-</button>
+<span class="text-sm font-bold w-4 text-center">1</span>
+<button class="text-sm font-bold flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm cursor-pointer">+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4">
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0" data-alt="Spicy chicken wrap with garlic sauce" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwZuRrEMIMWlq-9hFrMbSdu6OMNqVcCZhHrF1w3_8gEOROsFP0udiibBJOp1SmEnWgBAdkAMwg7SyEiiHjtnkmOBH9r-1JivIrLyjyBOtXRZG1TOhkTNZcl59cj2605DZ1QYRBi6v3BdzvfDegChpxEGPMm7Q_j7Ao-D0cE6QNjEFawAp8BgwMdb69YXB-yHhCCPy3XO383EVcUo-Sz6t4BygbrjulGRfW30vmn0pHnxGqB96M3O-YPQyBZahxrjDsrkOIH03Me48");'>
+</div>
+<div class="flex flex-col flex-1 gap-1">
+<p class="text-[#111811] text-base font-bold leading-tight">Spicy Chicken Wrap</p>
+<p class="text-[#608a60] text-xs font-normal leading-normal">With garlic sauce</p>
+<p class="text-[#111811] text-sm font-bold mt-1">$9.50</p>
+</div>
+<div class="shrink-0">
+<div class="flex items-center gap-3 text-[#111811] neumorphic-inset p-1 rounded-full">
+<button class="text-sm font-bold flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm cursor-pointer">-</button>
+<span class="text-sm font-bold w-4 text-center">2</span>
+<button class="text-sm font-bold flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm cursor-pointer">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Totals Section inside Glass Card -->
+<div class="mt-6 pt-6 border-t border-white/30 space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-[#608a60]">Subtotal</span>
+<span class="font-medium">$31.99</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#608a60]">Delivery Fee</span>
+<span class="font-medium">$2.50</span>
+</div>
+<div class="flex justify-between text-lg font-bold pt-2">
+<span>Total</span>
+<span>$34.49</span>
+</div>
+</div>
+</div>
+<!-- Delivery Address Section (Neumorphic) -->
+<div class="space-y-3">
+<h3 class="text-[#111811] text-sm font-bold leading-tight px-1">Delivery Address</h3>
+<div class="neumorphic-raised rounded-xl p-4 flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-4">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-sm font-bold">Home</p>
+<p class="text-xs text-[#608a60]">452 Broadway, New York, NY 10013</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#608a60]">chevron_right</span>
+</div>
+</div>
+<!-- Payment Method Section (Neumorphic Inset) -->
+<div class="space-y-3">
+<h3 class="text-[#111811] text-sm font-bold leading-tight px-1">Payment Method</h3>
+<div class="neumorphic-inset rounded-xl p-4 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="bg-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-black">contactless</span>
+</div>
+<div>
+<p class="text-sm font-bold">Apple Pay</p>
+<p class="text-xs text-[#608a60]">Connected to •••• 8812</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#608a60]">edit</span>
+</div>
+</div>
+<!-- Padding for sticky button -->
+<div class="h-24"></div>
+</div>
+<!-- Sticky Footer Place Order Button -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto p-4 pb-8 bg-gradient-to-t from-background-light via-background-light to-transparent">
+<button class="w-full h-16 neumorphic-button-green rounded-xl flex items-center justify-center gap-3 transition-all active:scale-95 group">
+<span class="text-[#111811] text-lg font-bold">Place Order</span>
+<span class="material-symbols-outlined text-[#111811]">shopping_bag</span>
+</button>
+</div>
+</div>
+</body></html>

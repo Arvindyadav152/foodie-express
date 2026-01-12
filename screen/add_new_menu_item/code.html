@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Menu Item</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e6994c",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211911",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'neumorphic-flat': '8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff',
+                        'neumorphic-pressed': 'inset 6px 6px 12px #d1d1d1, inset -6px -6px 12px #ffffff',
+                        'neumorphic-button': '5px 5px 10px #c5c5c5, -5px -5px 10px #ffffff',
+                        'neumorphic-orange': '5px 5px 10px #c48241, -5px -5px 10px #ffb057',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-image: linear-gradient(135deg, #f8f7f6 0%, #e5e0dc 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .neumorphic-input {
+            background: #f8f7f6;
+            box-shadow: inset 4px 4px 8px #e0dfde, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-card {
+            background: #f8f7f6;
+            box-shadow: 8px 8px 16px #e0dfde, -8px -8px 16px #ffffff;
+        }
+        .neumorphic-active {
+            background: #e6994c;
+            box-shadow: inset 4px 4px 8px #c48241, inset -4px -4px 8px #ffb057;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+<!-- Full Screen Modal Overlay (Glassmorphism) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/5 backdrop-blur-xl">
+<!-- Main Content Card -->
+<div class="glass-panel w-full max-w-[440px] rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[95vh]">
+<!-- Header -->
+<div class="px-6 pt-8 pb-4 flex items-center justify-between">
+<div class="w-10"></div> <!-- Spacer for centering -->
+<h2 class="text-[#171411] text-xl font-extrabold leading-tight tracking-tight text-center">Add New Item</h2>
+<button class="text-[#171411] size-10 flex items-center justify-center rounded-full hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Form Content -->
+<div class="flex-1 overflow-y-auto px-6 py-4 space-y-6">
+<!-- Image Upload (Neumorphic Pop) -->
+<div class="flex flex-col items-center gap-4">
+<div class="neumorphic-card w-40 h-40 rounded-xl flex flex-col items-center justify-center cursor-pointer group transition-transform active:scale-95">
+<div class="bg-primary/10 rounded-full p-4 mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">add_a_photo</span>
+</div>
+<p class="text-[#877564] text-xs font-semibold uppercase tracking-wider">Upload Photo</p>
+</div>
+</div>
+<!-- Input Fields -->
+<div class="space-y-5">
+<!-- Item Name -->
+<div class="flex flex-col gap-2">
+<label class="text-[#171411] text-sm font-bold ml-1 uppercase tracking-wider opacity-70">Item Name</label>
+<input class="neumorphic-input w-full border-none rounded-lg h-14 px-5 text-[#171411] placeholder:text-[#877564] focus:ring-2 focus:ring-primary/20" placeholder="e.g. Truffle Mushroom Pasta" type="text"/>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-2">
+<label class="text-[#171411] text-sm font-bold ml-1 uppercase tracking-wider opacity-70">Description</label>
+<textarea class="neumorphic-input w-full border-none rounded-lg min-h-28 p-5 text-[#171411] placeholder:text-[#877564] focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Describe the ingredients and flavor profile..."></textarea>
+</div>
+<!-- Price & Diet Toggle Row -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-[#171411] text-sm font-bold ml-1 uppercase tracking-wider opacity-70">Price</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#877564] text-xl">payments</span>
+<input class="neumorphic-input w-full border-none rounded-lg h-14 pl-12 pr-5 text-[#171411] placeholder:text-[#877564] focus:ring-2 focus:ring-primary/20" placeholder="0.00" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[#171411] text-sm font-bold ml-1 uppercase tracking-wider opacity-70">Type</label>
+<div class="neumorphic-input h-14 rounded-lg flex p-1.5 gap-1">
+<button class="flex-1 flex items-center justify-center rounded-md neumorphic-active text-white">
+<span class="material-symbols-outlined text-lg mr-1">eco</span>
+<span class="text-[10px] font-bold uppercase">Veg</span>
+</button>
+<button class="flex-1 flex items-center justify-center rounded-md hover:bg-black/5 transition-colors">
+<span class="material-symbols-outlined text-lg mr-1 text-[#877564]">restaurant</span>
+<span class="text-[10px] font-bold uppercase text-[#877564]">Non</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 pb-10 flex flex-col gap-4">
+<button class="bg-primary text-white h-16 rounded-xl font-bold text-lg shadow-neumorphic-orange active:translate-y-0.5 active:shadow-inner transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                    Add to Menu
+                </button>
+<button class="text-[#877564] font-bold text-sm uppercase tracking-widest text-center hover:text-[#171411] transition-colors py-2">
+                    Cancel
+                </button>
+</div>
+<!-- Home Indicator Area (iOS Spacing) -->
+<div class="h-2 w-32 bg-black/10 mx-auto rounded-full mb-2"></div>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-20 left-10 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+<div class="fixed bottom-20 right-10 w-80 h-80 bg-orange-200/30 rounded-full blur-[120px] -z-10"></div>
+</body></html>

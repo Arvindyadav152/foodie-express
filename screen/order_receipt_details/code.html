@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Receipt Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .neumorphic-convex {
+            background: #f6f8f6;
+            box-shadow: 6px 6px 12px #e1e3e1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f6f8f6;
+            box-shadow: inset 4px 4px 8px #e1e3e1, inset -4px -4px 8px #ffffff;
+        }
+        .perforated-edge {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .perforated-edge::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: radial-gradient(circle, #f6f8f6 6px, transparent 7px);
+            background-size: 20px 20px;
+            background-position: -10px -10px;
+        }
+        body {
+            background: linear-gradient(135deg, #f0f4f0 0%, #f6f8f6 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col items-center p-4 max-w-[430px] mx-auto overflow-x-hidden">
+<!-- Top App Bar Replacement -->
+<div class="flex items-center w-full bg-transparent p-4 pb-6 justify-between">
+<div class="neumorphic-convex size-10 flex items-center justify-center rounded-lg text-[#111811]">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111811] text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Order Receipt</h2>
+</div>
+<!-- Main Receipt Card -->
+<div class="glass-card w-full rounded-xl flex flex-col items-center pt-8 overflow-visible shadow-xl perforated-edge">
+<!-- Neumorphic Success Icon -->
+<div class="neumorphic-inset size-20 rounded-full flex items-center justify-center mb-6">
+<div class="bg-primary size-14 rounded-full flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-[32px] font-bold">check</span>
+</div>
+</div>
+<!-- Headline Section -->
+<div class="text-center px-4">
+<h1 class="text-[#111811] text-2xl font-extrabold tracking-tight">The Green Bistro</h1>
+<p class="text-[#618961] text-sm font-medium mt-1">October 24, 2023 • 12:45 PM</p>
+<div class="mt-2 inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                    Payment Successful
+                </div>
+</div>
+<!-- Separator -->
+<div class="w-full px-6 my-8">
+<div class="border-t border-dashed border-gray-300 w-full h-px"></div>
+</div>
+<!-- Order Details -->
+<div class="w-full px-8 space-y-4">
+<h3 class="text-[#111811] text-sm font-bold uppercase tracking-widest mb-4">Items Ordered</h3>
+<div class="flex justify-between items-center group">
+<div class="flex flex-col">
+<span class="text-[#111811] font-semibold text-base">Avocado Green Toast</span>
+<span class="text-[#618961] text-xs">Extra Lime, Gluten Free</span>
+</div>
+<span class="text-[#111811] font-bold">$14.50</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[#111811] font-semibold text-base">Fresh Matcha Latte</span>
+<span class="text-[#618961] text-xs">Oat Milk, No Sugar</span>
+</div>
+<span class="text-[#111811] font-bold">$6.75</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[#111811] font-semibold text-base">Acai Power Bowl</span>
+<span class="text-[#618961] text-xs">Honey Topping</span>
+</div>
+<span class="text-[#111811] font-bold">$12.00</span>
+</div>
+</div>
+<!-- Detailed Breakdown -->
+<div class="w-full px-8 mt-8 space-y-2">
+<div class="flex justify-between text-sm text-[#618961]">
+<span>Subtotal</span>
+<span>$33.25</span>
+</div>
+<div class="flex justify-between text-sm text-[#618961]">
+<span>Delivery Fee</span>
+<span>$2.50</span>
+</div>
+<div class="flex justify-between text-sm text-[#618961]">
+<span>Tax (GST)</span>
+<span>$1.25</span>
+</div>
+</div>
+<!-- Total Paid Section -->
+<div class="w-full px-8 mt-6 pb-4">
+<div class="flex justify-between items-end border-t border-gray-100 pt-6">
+<div class="flex flex-col">
+<span class="text-[#111811] text-sm font-bold uppercase tracking-widest">Total Paid</span>
+<span class="text-xs text-[#618961]">ID: #GB-892301-X</span>
+</div>
+<span class="text-primary text-3xl font-extrabold tracking-tighter">$37.00</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full mt-10 space-y-4 px-2">
+<!-- Neumorphic Download Button -->
+<button class="neumorphic-convex w-full h-14 rounded-xl flex items-center justify-center space-x-2 text-[#111811] font-bold active:shadow-inner transition-all">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+<span>Download PDF Receipt</span>
+</button>
+<!-- Secondary Button -->
+<button class="w-full h-14 rounded-xl flex items-center justify-center text-[#618961] font-semibold hover:text-primary transition-colors">
+                Back to Home Screen
+            </button>
+</div>
+<!-- Bottom Padding for iOS Home Indicator -->
+<div class="h-8"></div>
+</div>
+</body></html>

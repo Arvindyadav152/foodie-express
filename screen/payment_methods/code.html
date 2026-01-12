@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Methods</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6d",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102218",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .neumorphic-flat {
+            background: #f6f8f7;
+            box-shadow: 6px 6px 12px #e0e2e1, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-inset {
+            background: #f6f8f7;
+            box-shadow: inset 4px 4px 8px #e0e2e1, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-button {
+            background: #13ec6d;
+            box-shadow: 4px 4px 10px rgba(19, 236, 109, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.8);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(16, 34, 24, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111814] dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full max-w-[430px] mx-auto flex-col overflow-x-hidden pb-24">
+<!-- Top Navigation -->
+<div class="flex items-center p-4 pt-6 justify-between">
+<div class="flex size-10 items-center justify-center rounded-full neumorphic-flat dark:bg-background-dark dark:shadow-none">
+<span class="material-symbols-outlined text-lg">arrow_back_ios_new</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Payment Methods</h2>
+</div>
+<!-- Glassmorphic Amount Card -->
+<div class="p-4">
+<div class="relative overflow-hidden rounded-xl p-6 glass dark:glass-dark shadow-lg">
+<div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/20 blur-3xl"></div>
+<div class="absolute -left-10 -bottom-10 h-32 w-32 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center justify-center gap-2 py-4">
+<p class="text-sm font-medium opacity-70">Total Amount to Pay</p>
+<h1 class="text-5xl font-extrabold tracking-tight">$42.50</h1>
+<div class="mt-2 flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 text-xs font-bold text-[#0a7a39] dark:text-primary">
+<span class="material-symbols-outlined text-sm">shield</span>
+                        SECURE CHECKOUT
+                    </div>
+</div>
+</div>
+</div>
+<h3 class="text-base font-bold px-4 pb-4 pt-4 opacity-80">Select Payment Method</h3>
+<!-- Payment Methods List -->
+<div class="flex flex-col gap-4 px-4">
+<!-- Credit Card (Selected) -->
+<div class="flex items-center gap-4 p-4 rounded-xl neumorphic-flat dark:bg-white/5 dark:shadow-none border border-transparent hover:border-primary/30 transition-all">
+<div class="bg-white rounded-lg p-2 shadow-sm flex items-center justify-center w-12 h-8 overflow-hidden">
+<img alt="Visa Logo" class="w-full h-full object-contain" data-alt="Visa credit card logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9WoXgP3FcvvWqBUv69m2yiSAx6IgXK5xrZYPchKnW5rtbVjvBmrbunKq3RIdomtDshhQ9KJ2J8KLAro9kfKFxMzpZ36Og10Eml0iodryhyE7fjAzcwW4FHEPej5br-WTW-9954zM-Zdh92G159-JaG09emHyIzOvyvO_V6QH58k6SCutHLPHjXuVblm3LvCaOiUvd_f-hTkg6-0weKntvjlU83hMWt5WknS-CUKl4UPtypftBVGLDtdbYGoLUTS313pB9HFoY6D0"/>
+</div>
+<div class="flex flex-col flex-1">
+<p class="text-sm font-bold">Credit/Debit Card</p>
+<p class="text-xs opacity-60">**** **** **** 4582</p>
+</div>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full bg-primary text-white shadow-[0_2px_10px_rgba(19,236,109,0.4)]">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Apple Pay -->
+<div class="flex items-center gap-4 p-4 rounded-xl neumorphic-flat dark:bg-white/5 dark:shadow-none opacity-90 transition-all">
+<div class="bg-black rounded-lg p-2 shadow-sm flex items-center justify-center w-12 h-8 overflow-hidden">
+<img alt="Apple Pay Logo" class="w-full h-full object-contain brightness-0 invert" data-alt="Apple Pay logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG2YZeECemREToqYCHwLdI9W0QEs_43sO_yLhsRa__stKXXfslzTHLo7PrF2OnSQIhh1H9WGo09L9-ub3OIgTcYyQUW7yhT_dsZDEB5Pv3QmotSQSKuNqKt4dWcP7EkBJp58uZhTMh-4V65gtirtbva4Y_XdM3dkhobvHtp2AOI_v8WP1wNvjw4bySdEXasbEqoNe-U_GkhSmNqWrDQIodkHRv2eH0fIUXiomxqltSfCvGM4lJ48iOACi_O_oJANWr9gtf1De_bpM"/>
+</div>
+<p class="text-sm font-bold flex-1">Apple Pay</p>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full neumorphic-inset dark:bg-black/20"></div>
+</div>
+</div>
+<!-- Google Pay -->
+<div class="flex items-center gap-4 p-4 rounded-xl neumorphic-flat dark:bg-white/5 dark:shadow-none opacity-90 transition-all">
+<div class="bg-white rounded-lg p-2 shadow-sm flex items-center justify-center w-12 h-8 overflow-hidden">
+<img alt="Google Pay Logo" class="w-full h-full object-contain" data-alt="Google Pay logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmRf0I6Yq7WRba4QNt6fPMJjsyUQQ5dslLRi8OKQKoPJrh8EtKuPeDX3mQHXiKAoH9TLd7RMn4i8j4wJigg5EV3IeWk7FryQYv7LVfjA09Yd0oIQiZB_h_Nqp5t2QBHBU_V7VgvPHxtsdiQEFExjcH7q995n1Y7HdlZVrbQ7zS4XWEWZqxvw_mWBKoDUODhiKCDf88uapYLUxCa6Bb_Kyh-RKmi1--sTBRP7Un_Zwq9sBi0hBhj5maSlOcKdHS8ioJWcPxZBaCsYY"/>
+</div>
+<p class="text-sm font-bold flex-1">Google Pay</p>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full neumorphic-inset dark:bg-black/20"></div>
+</div>
+</div>
+<!-- Cash on Delivery -->
+<div class="flex items-center gap-4 p-4 rounded-xl neumorphic-flat dark:bg-white/5 dark:shadow-none opacity-90 transition-all">
+<div class="bg-primary/10 rounded-lg p-2 shadow-sm flex items-center justify-center w-12 h-8 overflow-hidden text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-sm font-bold flex-1">Cash on Delivery</p>
+<div class="shrink-0">
+<div class="flex size-6 items-center justify-center rounded-full neumorphic-inset dark:bg-black/20"></div>
+</div>
+</div>
+<!-- Add New Card (Glass) -->
+<div class="flex items-center justify-center gap-3 p-4 rounded-xl glass dark:glass-dark border-2 border-dashed border-primary/40 mt-2 cursor-pointer">
+<span class="material-symbols-outlined text-primary">add_circle</span>
+<p class="text-sm font-bold text-primary">Add New Card</p>
+</div>
+</div>
+<!-- Order Summary Placeholder -->
+<div class="px-6 py-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm opacity-60">Subtotal</span>
+<span class="text-sm font-bold">$38.00</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm opacity-60">Delivery Fee</span>
+<span class="text-sm font-bold">$4.50</span>
+</div>
+<div class="h-[1px] w-full bg-black/5 dark:bg-white/5 my-4"></div>
+</div>
+<!-- Sticky Bottom Button -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<button class="w-full h-16 rounded-xl neumorphic-button text-white font-bold text-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+                Confirm &amp; Pay
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-1 mt-4 opacity-40 text-[10px] uppercase tracking-widest font-bold">
+<span class="material-symbols-outlined text-xs">lock</span>
+                PCI DSS Compliant &amp; Encrypted
+            </div>
+</div>
+</div>
+</body></html>

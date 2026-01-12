@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>No Connection - Food Delivery App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "soft-gray": "#e1e8e1",
+                        "neumorphic-shadow-light": "#ffffff",
+                        "neumorphic-shadow-dark": "#d1d9d1",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-card {
+            background: rgba(16, 34, 22, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neumorphic-button {
+            box-shadow: 6px 6px 12px #d1d9d1, -6px -6px 12px #ffffff;
+            transition: all 0.2s ease;
+        }
+        .dark .neumorphic-button {
+            box-shadow: 6px 6px 12px #0a150e, -4px -4px 12px #162e1e;
+        }
+        .neumorphic-button:active {
+            box-shadow: inset 4px 4px 8px #d1d9d1, inset -4px -4px 8px #ffffff;
+            transform: scale(0.98);
+        }
+        .dark .neumorphic-button:active {
+            box-shadow: inset 4px 4px 8px #0a150e, inset -4px -4px 8px #162e1e;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center px-4 py-6 justify-between">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-background-light dark:bg-background-dark shadow-[4px_4px_8px_#d1d9d1,-4px_-4px_8px_#ffffff] dark:shadow-[4px_4px_8px_#0a150e,-4px_-4px_8px_#162e1e]">
+<span class="material-symbols-outlined text-[#111813] dark:text-white">arrow_back_ios_new</span>
+</button>
+<div class="flex-grow"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 -mt-10">
+<!-- Glassmorphic Central Card -->
+<div class="glass-card w-full max-w-sm rounded-2xl p-8 flex flex-col items-center text-center shadow-xl">
+<!-- 3D Illustration Container -->
+<div class="relative w-48 h-48 mb-8 flex items-center justify-center">
+<!-- Abstract 3D Wifi Disconnected Graphic -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center justify-center">
+<div class="text-primary opacity-90 drop-shadow-2xl">
+<span class="material-symbols-outlined !text-[120px]" style="font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;">
+                            wifi_off
+                        </span>
+</div>
+<!-- Decorative Elements to give 3D feel -->
+<div class="absolute top-4 right-4 w-4 h-4 bg-primary rounded-full blur-[2px]"></div>
+<div class="absolute bottom-8 left-2 w-3 h-3 bg-white rounded-full blur-[1px]"></div>
+</div>
+</div>
+<!-- Typography -->
+<h1 class="text-[#111813] dark:text-white text-2xl font-bold leading-tight tracking-tight mb-3">
+                No Internet Connection
+            </h1>
+<p class="text-[#61896f] dark:text-primary/70 text-base font-normal leading-relaxed max-w-[240px]">
+                Please check your connection and try again.
+            </p>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<footer class="p-8 pb-12 flex flex-col items-center">
+<!-- Neumorphic Retry Button -->
+<button class="neumorphic-button w-full max-w-[320px] h-14 bg-primary rounded-xl flex items-center justify-center gap-2 group">
+<span class="material-symbols-outlined text-[#111813] font-bold">refresh</span>
+<span class="text-[#111813] text-lg font-bold tracking-wide">Retry</span>
+</button>
+<!-- Secondary Help Text -->
+<p class="mt-8 text-xs text-[#61896f]/60 dark:text-primary/40 font-medium uppercase tracking-widest">
+            Offline Mode Available
+        </p>
+<!-- Visual Background Enhancements -->
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+</footer>
+</body></html>

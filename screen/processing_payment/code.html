@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Processing Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6d",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102218",
+                        "charcoal": "#111814",
+                        "soft-grey": "#618972"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .neumorphic-inset {
+            background: #f6f8f7;
+            box-shadow: inset 4px 4px 8px #d1d9d5, 
+                        inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-raised {
+            box-shadow: 6px 6px 12px #d1d9d5, 
+                        -6px -6px 12px #ffffff;
+        }
+        .radial-bg {
+            background: radial-gradient(circle at center, #ffffff 0%, #f6f8f7 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<div class="flex items-center bg-transparent p-4 pb-2 justify-between z-10">
+<div class="text-charcoal dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full glass-effect" data-icon="ArrowLeft">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</div>
+<h2 class="text-charcoal dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Processing Payment</h2>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 gap-8">
+<!-- Central Glassmorphic Card -->
+<div class="w-full max-w-sm glass-effect rounded-xl p-8 flex flex-col items-center gap-8 neumorphic-raised border border-white/40">
+<!-- Neumorphic Progress Ring -->
+<div class="relative flex items-center justify-center size-48">
+<!-- Neumorphic Track -->
+<div class="absolute inset-0 rounded-full neumorphic-inset flex items-center justify-center">
+<!-- Internal Glassy center -->
+<div class="size-32 rounded-full glass-effect flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl font-bold">payments</span>
+</div>
+</div>
+<!-- Progress Indicator (Simulated with SVG) -->
+<svg class="absolute inset-0 size-full -rotate-90">
+<circle cx="50%" cy="50%" fill="transparent" r="90" stroke="#13ec6d" stroke-dasharray="565.48" stroke-dashoffset="197.9" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+</div>
+<!-- Status Typography -->
+<div class="text-center space-y-2">
+<h3 class="text-charcoal dark:text-white text-2xl font-bold tracking-tight">Securing your payment...</h3>
+<p class="text-soft-grey text-base font-medium">Please do not close the app or refresh the page.</p>
+</div>
+<!-- Progress Percentage -->
+<div class="flex flex-col gap-3 w-full">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-charcoal dark:text-white text-sm font-medium">Verifying with bank...</p>
+<p class="text-charcoal dark:text-white text-sm font-bold">65%</p>
+</div>
+<div class="rounded-full h-2.5 w-full neumorphic-inset overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<!-- Security Features List -->
+<div class="w-full max-w-sm space-y-3">
+<div class="flex items-center gap-4 glass-effect px-5 py-4 rounded-lg">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<div class="flex-1">
+<p class="text-charcoal dark:text-white text-base font-semibold">256-bit Encryption</p>
+<p class="text-soft-grey text-xs">Your data is fully encrypted</p>
+</div>
+<div class="shrink-0 text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+</div>
+<div class="flex items-center gap-4 glass-effect px-5 py-4 rounded-lg">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div class="flex-1">
+<p class="text-charcoal dark:text-white text-base font-semibold">Verified Merchant</p>
+<p class="text-soft-grey text-xs">Trusted food delivery network</p>
+</div>
+<div class="shrink-0 text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Security Badge -->
+<footer class="p-8 flex flex-col items-center">
+<div class="glass-effect rounded-full px-6 py-3 flex items-center gap-3 neumorphic-raised border border-white/60">
+<span class="material-symbols-outlined text-primary text-xl">gpp_good</span>
+<span class="text-soft-grey text-sm font-bold uppercase tracking-widest">Secure Transaction</span>
+</div>
+<p class="mt-4 text-soft-grey/60 text-xs font-medium">Powered by GlobalSecure Payments</p>
+</footer>
+<!-- Background Decoration Elements -->
+<div class="fixed top-[-10%] right-[-10%] size-64 bg-primary/10 blur-[100px] rounded-full -z-10"></div>
+<div class="fixed bottom-[-5%] left-[-5%] size-80 bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+</body></html>
