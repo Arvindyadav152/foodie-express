@@ -2,17 +2,21 @@ import React, { useState, useRef, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
 import { auth } from '../../config/firebase';
 import { PhoneAuthProvider, signInWithCredential } from 'firebase/auth';
 import api from '../../utils/api';
 import { AuthContext } from '../../context/AuthContext';
-import Constants from 'expo-constants';
 
 const PhoneLoginScreen = () => {
     const router = useRouter();
+    const params = useLocalSearchParams<{ role?: string }>();
     const { login } = useContext(AuthContext);
+
+    // Map 'customer' to 'user' for backend consistency
+    const selectedRole = params.role === 'customer' ? 'user' : (params.role || 'user');
+
     const [phoneNumber, setPhoneNumber] = useState('');
     const [verificationId, setVerificationId] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
@@ -34,7 +38,7 @@ const PhoneLoginScreen = () => {
             );
             setVerificationId(id);
             Alert.alert('Success', 'OTP sent successfully!');
-        } catch (error) {
+        } catch (error: any) {
             console.error('Send OTP Error:', error);
             Alert.alert('Error', error.code === 'auth/invalid-phone-number' ? 'Invalid phone number format' : 'Failed to send OTP. Please try again.');
         } finally {
@@ -59,19 +63,31 @@ const PhoneLoginScreen = () => {
             // Call our backend to verify token and log user in
             const response = await api.post('/auth/phone-login', {
                 idToken,
-                role: 'user' // Default to customer
+                role: selectedRole
             });
 
             if (response.data && response.data.token) {
                 await login(response.data.token, response.data);
-                router.replace('/(tabs)'); // Redirect to main app
+
+                // Role-based redirection
+                const userRole = response.data.role;
+                if (userRole === 'vendor') {
+                    router.replace('/(vendor-tabs)');
+                } else if (userRole === 'driver') {
+                    router.replace('/(driver-tabs)');
+                } else {
+                    router.replace('/(tabs)');
+                }
+
+                Alert.alert('Success', 'Logged in successfully!');
             } else {
                 throw new Error('Invalid server response');
             }
 
-        } catch (error) {
+        } catch (error: any) {
             console.error('Verify OTP Error:', error);
-            Alert.alert('Error', 'Verification failed. Please check the OTP and try again.');
+            const message = error.response?.data?.message || 'Verification failed. Please try again.';
+            Alert.alert('Error', message);
         } finally {
             setIsLoading(false);
         }
