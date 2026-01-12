@@ -177,6 +177,14 @@ export default function SignupScreen() {
                         {!loading && <MaterialIcons name="arrow-forward" size={20} color="white" />}
                     </TouchableOpacity>
 
+                    <TouchableOpacity
+                        onPress={() => router.push({ pathname: '/auth/phone-login', params: { role } })}
+                        className="mt-4 w-full h-14 bg-[#1A1D3B] rounded-xl shadow-sm items-center justify-center flex-row gap-2 z-10 border border-gray-100"
+                    >
+                        <MaterialIcons name="phone-android" size={20} color="white" />
+                        <Text className="text-white font-bold text-base">Sign Up with Mobile</Text>
+                    </TouchableOpacity>
+
                     <View className="z-10 mt-6 items-center flex-row justify-center">
                         <Text className="text-[#608a60] text-sm">Have an account? </Text>
                         <TouchableOpacity onPress={() => router.replace({ pathname: '/auth/login', params: { role } })}>

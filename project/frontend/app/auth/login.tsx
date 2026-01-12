@@ -167,6 +167,14 @@ export default function LoginScreen() {
                         {!loading && <MaterialIcons name="arrow-forward" size={20} color="white" />}
                     </TouchableOpacity>
 
+                    <TouchableOpacity
+                        onPress={() => router.push({ pathname: '/auth/phone-login', params: { role } })}
+                        className="mt-4 w-full h-14 bg-[#1A1D3B] rounded-xl shadow-sm items-center justify-center flex-row gap-2 z-10 border border-gray-100"
+                    >
+                        <MaterialIcons name="phone-android" size={20} color="white" />
+                        <Text className="text-white font-bold text-base">Sign In with Mobile</Text>
+                    </TouchableOpacity>
+
                     {/* Social */}
                     <View className="z-10">
                         <View className="flex-row items-center gap-4 my-6">
