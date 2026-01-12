@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    phone: { type: String },
+    phoneNumber: { type: String, unique: true, sparse: true },
+    firebaseUid: { type: String, unique: true, sparse: true },
     role: {
         type: String,
         enum: ['user', 'vendor', 'admin', 'driver'],

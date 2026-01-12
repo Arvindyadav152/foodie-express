@@ -176,13 +176,14 @@ export default function LoginScreen() {
                         </View>
 
                         <View className="flex-row justify-center gap-6">
-                            {/* Placeholders for Social Icons */}
+                            <TouchableOpacity onPress={() => router.push('/auth/phone-login')} className="w-14 h-14 rounded-full bg-[#f5f8f5] shadow-sm items-center justify-center border border-gray-100">
+                                <MaterialIcons name="phone-android" size={24} color="#FF6B6B" />
+                            </TouchableOpacity>
                             <TouchableOpacity className="w-14 h-14 rounded-full bg-[#f5f8f5] shadow-sm items-center justify-center">
                                 <MaterialIcons name="apple" size={24} color="black" />
                             </TouchableOpacity>
                             <TouchableOpacity className="w-14 h-14 rounded-full bg-[#f5f8f5] shadow-sm items-center justify-center">
-                                <MaterialIcons name="g-translate" size={24} color="black" />
-                                {/* Using g-translate as google placeholder if material icons doesn't have google-colored logo */}
+                                <MaterialIcons name="g-translate" size={24} color="#4285F4" />
                             </TouchableOpacity>
                         </View>
 
