@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #0df20d;
+  --primary-foreground: #ffffff;
+  --sidebar: #ffffff;
+  --card: #ffffff;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-sidebar: var(--sidebar);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200;
+}
+
+.sidebar-link:hover {
+  @apply bg-slate-50 text-primary;
+}
+
+.sidebar-link.active {
+  @apply bg-slate-100 text-primary font-bold shadow-sm;
+}
