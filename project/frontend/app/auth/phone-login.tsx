@@ -10,7 +10,9 @@ import {
     Platform,
     KeyboardAvoidingView,
     Vibration,
-    StatusBar
+    StatusBar,
+    Animated,
+    Dimensions
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -20,29 +22,52 @@ import { auth } from '../../config/firebase';
 import { PhoneAuthProvider, signInWithCredential } from 'firebase/auth';
 import api from '../../utils/api';
 import { AuthContext } from '../../context/AuthContext';
-import { BlurView } from 'expo-blur';
+
+const { width } = Dimensions.get('window');
 
 const PhoneLoginScreen = () => {
     const router = useRouter();
     const params = useLocalSearchParams<{ role?: string }>();
     const { login } = useContext(AuthContext);
 
-    // Map 'customer' to 'user' for backend consistency
+    // Role mapping
     const selectedRole = params.role === 'customer' ? 'user' : (params.role || 'user');
 
     const [phoneNumber, setPhoneNumber] = useState('');
     const [verificationId, setVerificationId] = useState('');
     const [verificationCode, setVerificationCode] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const recaptchaVerifier = useRef(null);
+    const [timer, setTimer] = useState(30);
+    const [canResend, setCanResend] = useState(false);
 
-    // Dynamic UI states
-    const [focused, setFocused] = useState(false);
+    const recaptchaVerifier = useRef(null);
+    const fadeAnim = useRef(new Animated.Value(0)).current;
+    const fadeAnimOTP = useRef(new Animated.Value(0)).current;
+
+    useEffect(() => {
+        Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 800,
+            useNativeDriver: true,
+        }).start();
+    }, []);
+
+    useEffect(() => {
+        let interval: any;
+        if (verificationId && timer > 0) {
+            interval = setInterval(() => {
+                setTimer((prev) => prev - 1);
+            }, 1000);
+        } else if (timer === 0) {
+            setCanResend(true);
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [verificationId, timer]);
 
     const handleSendOTP = async () => {
         if (!phoneNumber || phoneNumber.length !== 10) {
             Vibration.vibrate(100);
-            Alert.alert('Invalid Number', 'Please enter a valid 10-digit mobile number to proceed.');
             return;
         }
 
@@ -54,27 +79,32 @@ const PhoneLoginScreen = () => {
                 recaptchaVerifier.current
             );
             setVerificationId(id);
+            setTimer(30);
+            setCanResend(false);
             Vibration.vibrate(50);
+
+            Animated.timing(fadeAnimOTP, {
+                toValue: 1,
+                duration: 600,
+                delay: 200,
+                useNativeDriver: true,
+            }).start();
         } catch (error: any) {
             console.error('Send OTP Error:', error);
-            Alert.alert('Verification Failed', error.code === 'auth/invalid-phone-number' ? 'This phone number format is invalid.' : 'We couldn\'t send the OTP. Please check your internet and try again.');
+            Alert.alert('Try Again', 'We couldn\'t send the OTP right now. Please try again later.');
         } finally {
             setIsLoading(false);
         }
     };
 
-    const handleVerifyOTP = async () => {
-        if (!verificationCode || verificationCode.length !== 6) {
-            Vibration.vibrate(100);
-            Alert.alert('Invalid OTP', 'Please enter the 6-digit code sent to your phone.');
-            return;
-        }
+    const handleVerifyOTP = async (codeOverride?: string) => {
+        const code = codeOverride || verificationCode;
+        if (!code || code.length !== 6) return;
 
         setIsLoading(true);
         try {
-            const credential = PhoneAuthProvider.credential(verificationId, verificationCode);
+            const credential = PhoneAuthProvider.credential(verificationId, code);
             const userCredential = await signInWithCredential(auth, credential);
-
             const idToken = await userCredential.user.getIdToken();
 
             const response = await api.post('/auth/phone-login', {
@@ -84,23 +114,32 @@ const PhoneLoginScreen = () => {
 
             if (response.data && response.data.token) {
                 await login(response.data.token, response.data);
-                Vibration.vibrate(100);
+                Vibration.vibrate([0, 10, 50, 10]);
 
                 const userRole = response.data.role;
                 if (userRole === 'vendor') router.replace('/(vendor-tabs)');
                 else if (userRole === 'driver') router.replace('/(driver-tabs)');
                 else router.replace('/(tabs)');
-            } else {
-                throw new Error('Server authentication failed');
             }
-
         } catch (error: any) {
             console.error('Verify OTP Error:', error);
-            Alert.alert('Error', error.response?.data?.message || 'Verification failed. Please try again.');
+            Vibration.vibrate(200);
+            Alert.alert('Invalid OTP', 'The code you entered is incorrect. Please check and try again.');
         } finally {
             setIsLoading(false);
         }
     };
+
+    const renderHeader = () => (
+        <View className="px-6 py-4">
+            <TouchableOpacity
+                onPress={() => verificationId ? setVerificationId('') : router.back()}
+                className="w-10 h-10 items-center justify-center bg-gray-50 rounded-full"
+            >
+                <Ionicons name="close" size={24} color="#1A1D3B" />
+            </TouchableOpacity>
+        </View>
+    );
 
     return (
         <View className="flex-1 bg-white">
@@ -112,129 +151,98 @@ const PhoneLoginScreen = () => {
             />
 
             <SafeAreaView className="flex-1">
-                <KeyboardAvoidingView
-                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                    className="flex-1"
-                >
-                    <View className="px-6 py-4 flex-row items-center">
-                        <TouchableOpacity
-                            onPress={() => router.back()}
-                            className="w-12 h-12 rounded-2xl bg-gray-50 items-center justify-center border border-gray-100"
-                        >
-                            <Ionicons name="arrow-back" size={24} color="#1A1D3B" />
-                        </TouchableOpacity>
-                    </View>
+                {renderHeader()}
+                <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} className="flex-1">
+                    <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
 
-                    <ScrollView
-                        contentContainerStyle={{ flexGrow: 1 }}
-                        className="px-8"
-                        showsVerticalScrollIndicator={false}
-                    >
-                        <View className="mt-8 mb-12">
-                            <View className="w-16 h-16 bg-[#FF6B6B]/10 rounded-3xl items-center justify-center mb-6">
-                                <MaterialIcons name={!verificationId ? "smartphone" : "message"} size={32} color="#FF6B6B" />
-                            </View>
-                            <Text className="text-4xl font-black text-[#1A1D3B] tracking-tight leading-[44px]">
-                                {!verificationId ? "Sign in with\nMobile" : "Verify your\nNumber"}
-                            </Text>
-                            <Text className="text-gray-500 mt-4 text-lg leading-6 font-medium">
-                                {!verificationId
-                                    ? "Enter your details to access your account securely."
-                                    : `We've sent a 6-digit code to +91 ${phoneNumber}`}
-                            </Text>
-                        </View>
+                        {!verificationId ? (
+                            <Animated.View style={{ opacity: fadeAnim }} className="px-8 pt-6">
+                                <Text className="text-3xl font-black text-[#1A1D3B] tracking-tight">LOGIN</Text>
+                                <Text className="text-gray-400 font-medium text-base mt-1">Enter your mobile number to proceed</Text>
 
-                        <View className="gap-6">
-                            {!verificationId ? (
-                                <View>
-                                    <Text className="text-[#1A1D3B] text-sm font-bold mb-3 ml-1">Phone Number</Text>
-                                    <View
-                                        className={`flex-row items-center bg-gray-50 rounded-[24px] px-6 h-18 border-2 transition-all ${focused ? 'border-[#FF6B6B] bg-white' : 'border-transparent'}`}
-                                        style={{ height: 72 }}
-                                    >
-                                        <View className="flex-row items-center border-r border-gray-200 pr-4 mr-4">
-                                            <Text className="text-lg font-black text-[#1A1D3B]">+91</Text>
-                                        </View>
+                                <View className="mt-12">
+                                    <View className="flex-row items-center border-b-2 border-gray-100 py-4 focus:border-[#FF6B6B]">
+                                        <Text className="text-2xl font-black text-[#1A1D3B] mr-4">+91</Text>
                                         <TextInput
-                                            placeholder="98765 43210"
+                                            autoFocus
+                                            placeholder="Mobile Number"
                                             keyboardType="phone-pad"
                                             value={phoneNumber}
                                             onChangeText={setPhoneNumber}
-                                            onFocus={() => setFocused(true)}
-                                            onBlur={() => setFocused(false)}
-                                            className="flex-1 text-xl font-bold text-[#1A1D3B]"
+                                            className="flex-1 text-2xl font-black text-[#1A1D3B]"
                                             maxLength={10}
-                                            placeholderTextColor="#9ca3af"
+                                            placeholderTextColor="#ced4da"
                                         />
                                     </View>
+                                </View>
 
-                                    <TouchableOpacity
-                                        onPress={handleSendOTP}
-                                        disabled={isLoading}
-                                        className={`mt-10 h-18 bg-[#FF6B6B] rounded-[24px] items-center justify-center shadow-2xl shadow-[#FF6B6B]/40 flex-row gap-3 ${isLoading ? 'opacity-70' : ''}`}
-                                        style={{ height: 68 }}
-                                    >
-                                        {isLoading ? (
-                                            <ActivityIndicator color="white" />
-                                        ) : (
-                                            <>
-                                                <Text className="text-white font-black text-xl">Continue</Text>
-                                                <MaterialIcons name="arrow-forward" size={24} color="white" />
-                                            </>
-                                        )}
+                                <TouchableOpacity
+                                    onPress={handleSendOTP}
+                                    disabled={isLoading || phoneNumber.length !== 10}
+                                    className={`mt-10 h-16 rounded-xl items-center justify-center ${phoneNumber.length === 10 ? 'bg-[#FF6B6B]' : 'bg-gray-200'}`}
+                                >
+                                    {isLoading ? <ActivityIndicator color="white" /> : <Text className="text-white font-black text-lg">CONTINUE</Text>}
+                                </TouchableOpacity>
+
+                                <Text className="text-center text-gray-400 text-xs mt-8 px-4">
+                                    By clicking onto continue, you agree to our{' '}
+                                    <Text className="text-gray-600 font-bold">Terms of Service</Text> &{' '}
+                                    <Text className="text-gray-600 font-bold">Privacy Policy</Text>
+                                </Text>
+                            </Animated.View>
+                        ) : (
+                            <Animated.View style={{ opacity: fadeAnimOTP }} className="px-8 pt-6">
+                                <Text className="text-3xl font-black text-[#1A1D3B] tracking-tight">VERIFY DETAILS</Text>
+                                <Text className="text-gray-400 font-medium text-base mt-1">
+                                    OTP sent to <Text className="text-[#1A1D3B] font-bold">+91 {phoneNumber}</Text>
+                                </Text>
+
+                                <View className="mt-12">
+                                    <TextInput
+                                        autoFocus
+                                        placeholder="Enter OTP"
+                                        keyboardType="number-pad"
+                                        value={verificationCode}
+                                        onChangeText={(val) => {
+                                            setVerificationCode(val);
+                                            if (val.length === 6) handleVerifyOTP(val);
+                                        }}
+                                        className="text-4xl font-black text-[#1A1D3B] tracking-[8px] text-center border-b-2 border-gray-100 py-4"
+                                        maxLength={6}
+                                        placeholderTextColor="#ced4da"
+                                    />
+                                </View>
+
+                                <View className="flex-row justify-between items-center mt-6">
+                                    {timer > 0 ? (
+                                        <Text className="text-gray-400 font-bold">Resend OTP in <Text className="text-[#FF6B6B]">0:{timer < 10 ? `0${timer}` : timer}</Text></Text>
+                                    ) : (
+                                        <TouchableOpacity onPress={handleSendOTP}>
+                                            <Text className="text-[#FF6B6B] font-black">RESEND OTP</Text>
+                                        </TouchableOpacity>
+                                    )}
+                                    <TouchableOpacity onPress={() => setVerificationId('')}>
+                                        <Text className="text-gray-400 font-bold">Change Number</Text>
                                     </TouchableOpacity>
                                 </View>
-                            ) : (
-                                <View>
-                                    <Text className="text-[#1A1D3B] text-sm font-bold mb-3 ml-1">One-Time Password</Text>
-                                    <View
-                                        className="bg-gray-50 rounded-[24px] px-6 h-18 border-2 border-transparent focus:border-[#2ECC71]"
-                                        style={{ height: 72, justifyContent: 'center' }}
-                                    >
-                                        <TextInput
-                                            placeholder="0 0 0 0 0 0"
-                                            keyboardType="number-pad"
-                                            value={verificationCode}
-                                            onChangeText={setVerificationCode}
-                                            className="text-3xl font-black text-[#1A1D3B] text-center tracking-[12px]"
-                                            maxLength={6}
-                                            placeholderTextColor="#d1d5db"
-                                            autoFocus
-                                        />
-                                    </View>
 
-                                    <TouchableOpacity
-                                        onPress={handleVerifyOTP}
-                                        disabled={isLoading}
-                                        className={`mt-10 h-18 bg-[#1A1D3B] rounded-[24px] items-center justify-center shadow-2xl shadow-gray-400 ${isLoading ? 'opacity-70' : ''}`}
-                                        style={{ height: 68 }}
-                                    >
-                                        {isLoading ? (
-                                            <ActivityIndicator color="white" />
-                                        ) : (
-                                            <Text className="text-white font-black text-xl">Verify & Sign In</Text>
-                                        )}
-                                    </TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={() => handleVerifyOTP()}
+                                    disabled={isLoading || verificationCode.length !== 6}
+                                    className={`mt-10 h-16 rounded-xl items-center justify-center ${verificationCode.length === 6 ? 'bg-[#FF6B6B]' : 'bg-gray-200'}`}
+                                >
+                                    {isLoading ? <ActivityIndicator color="white" /> : <Text className="text-white font-black text-lg">VERIFY AND PROCEED</Text>}
+                                </TouchableOpacity>
+                            </Animated.View>
+                        )}
 
-                                    <TouchableOpacity
-                                        onPress={() => setVerificationId('')}
-                                        className="mt-8 self-center"
-                                    >
-                                        <Text className="text-gray-400 font-bold">Entered wrong number? <Text className="text-[#FF6B6B]">Change</Text></Text>
-                                    </TouchableOpacity>
-                                </View>
-                            )}
-                        </View>
-
-                        <View className="mt-auto pt-10 pb-6">
-                            <Text className="text-gray-400 text-sm text-center font-medium leading-5 px-6">
-                                By continuing, you agree to our{' '}
-                                <Text className="text-[#1A1D3B] font-bold">Terms</Text> &{' '}
-                                <Text className="text-[#1A1D3B] font-bold">Privacy Policy</Text>.
-                            </Text>
-                        </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
+
+                {/* Brand Footer */}
+                <View className="pb-8 items-center">
+                    <Text className="text-gray-200 font-black text-4xl italic tracking-tighter opacity-20">FOODIEHUB</Text>
+                </View>
             </SafeAreaView>
         </View>
     );
