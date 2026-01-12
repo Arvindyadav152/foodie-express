@@ -42,13 +42,28 @@ mongoose.connect(MONGO_URI)
 
 // Database Connection (Redis)
 const redisClient = createClient({
-    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379'
+    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
+    socket: {
+        reconnectStrategy: (retries) => {
+            if (retries > 5) return false; // Stop retrying after 5 attempts
+            return 500;
+        }
+    }
 });
 
-redisClient.on('error', (err) => console.log('❌ Redis Client Error', err));
+redisClient.on('error', (err) => {
+    if (process.env.NODE_ENV === 'production') {
+        console.log('⚠️ Redis not available, skipping cache...');
+    } else {
+        console.error('❌ Redis Client Error', err);
+    }
+});
 redisClient.on('connect', () => console.log('✅ Redis Client Connected'));
 
-await redisClient.connect().catch(console.error);
+// Only attempt connection if REDIS_URL is provided or in development
+if (process.env.REDIS_URL || process.env.NODE_ENV !== 'production') {
+    await redisClient.connect().catch(err => console.log('⚠️ Redis Connection Failed'));
+}
 
 import authRoutes from './routes/authRoutes.js';
 import restaurantRoutes from './routes/restaurantRoutes.js';
