@@ -18,7 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
-import { auth } from '../../config/firebase';
+import { auth, firebaseConfig } from '../../config/firebase';
 import { PhoneAuthProvider, signInWithCredential } from 'firebase/auth';
 import api from '../../utils/api';
 import { AuthContext } from '../../context/AuthContext';
@@ -40,7 +40,7 @@ const PhoneLoginScreen = () => {
     const [timer, setTimer] = useState(30);
     const [canResend, setCanResend] = useState(false);
 
-    const recaptchaVerifier = useRef(null);
+    const recaptchaVerifier = useRef<FirebaseRecaptchaVerifierModal>(null);
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const fadeAnimOTP = useRef(new Animated.Value(0)).current;
 
@@ -76,7 +76,7 @@ const PhoneLoginScreen = () => {
             const phoneProvider = new PhoneAuthProvider(auth);
             const id = await phoneProvider.verifyPhoneNumber(
                 `+91${phoneNumber}`,
-                recaptchaVerifier.current
+                recaptchaVerifier.current!
             );
             setVerificationId(id);
             setTimer(30);
@@ -153,7 +153,7 @@ const PhoneLoginScreen = () => {
             <StatusBar barStyle="dark-content" />
             <FirebaseRecaptchaVerifierModal
                 ref={recaptchaVerifier}
-                firebaseConfig={auth.app.options}
+                firebaseConfig={firebaseConfig}
                 attemptInvisibleVerification={true}
             />
 
