@@ -7,11 +7,16 @@ import Constants from 'expo-constants';
 
 // Get Socket URL from environment or use defaults
 const getSocketUrl = () => {
+    // 1. Check for environment variable (Production)
     const envSocketUrl = Constants.expoConfig?.extra?.socketUrl || process.env.EXPO_PUBLIC_SOCKET_URL;
-    if (envSocketUrl) {
-        return envSocketUrl;
+    if (envSocketUrl) return envSocketUrl;
+
+    // 2. Default Production Fallback (Render)
+    if (process.env.NODE_ENV === 'production') {
+        return 'https://foodie-express-9vht.onrender.com';
     }
-    // Development fallback
+
+    // 3. Development fallbacks
     if (Platform.OS === 'web' || Platform.OS === 'ios') {
         return 'http://localhost:8000';
     }

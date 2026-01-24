@@ -6,6 +6,7 @@ import {
     XCircle, Clock, TrendingUp, DollarSign, Package, AlertCircle,
     MoreVertical, Eye, Ban, Shield
 } from 'lucide-react';
+import api from '@/utils/api';
 
 interface Driver {
     _id: string;
@@ -43,8 +44,8 @@ export default function DriversPage() {
 
     const fetchDrivers = async () => {
         try {
-            const res = await fetch('http://localhost:8000/api/admin/drivers');
-            const data = await res.json();
+            const response = await api.get('/admin/drivers');
+            const data = response.data;
             setDrivers(data.drivers || []);
             setStats({
                 total: data.total || 0,
@@ -107,9 +108,7 @@ export default function DriversPage() {
 
     const toggleDriverStatus = async (driverId: string, action: 'suspend' | 'activate') => {
         try {
-            await fetch(`http://localhost:8000/api/admin/drivers/${driverId}/${action}`, {
-                method: 'PUT'
-            });
+            await api.put(`/admin/drivers/${driverId}/${action}`);
             fetchDrivers();
         } catch (error) {
             console.error('Failed to update driver status');
@@ -245,8 +244,8 @@ export default function DriversPage() {
                                 </td>
                                 <td className="p-4">
                                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${driver.isOnline
-                                            ? 'bg-green-50 text-green-600'
-                                            : 'bg-slate-100 text-slate-500'
+                                        ? 'bg-green-50 text-green-600'
+                                        : 'bg-slate-100 text-slate-500'
                                         }`}>
                                         {driver.isOnline ? '● Online' : '○ Offline'}
                                     </span>

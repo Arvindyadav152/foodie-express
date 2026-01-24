@@ -82,7 +82,7 @@ export default function LandingScreen() {
                         <View className="w-20 h-20 bg-white rounded-3xl items-center justify-center mb-4 border border-gray-100">
                             <MaterialIcons name="restaurant-menu" size={40} color="#FF6B6B" />
                         </View>
-                        <Text className="text-4xl font-black text-[#1A1D3B] tracking-tight">FoodieExpress</Text>
+                        <Text className="text-4xl font-black text-[#1A1D3B] tracking-tight">FoodiesHub</Text>
                         <Text className="text-gray-500 text-center mt-2 text-base">
                             Choose how you want to use our platform
                         </Text>
@@ -164,7 +164,7 @@ export default function LandingScreen() {
                             By continuing, you agree to our Terms of Service and Privacy Policy
                         </Text>
                         <Text className="text-gray-300 text-[10px] mt-4 font-bold tracking-widest uppercase">
-                            FoodieExpress v2.0
+                            FoodiesHub v1.0.1
                         </Text>
                     </View>
                 </ScrollView>

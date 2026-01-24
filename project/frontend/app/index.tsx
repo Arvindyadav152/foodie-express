@@ -25,7 +25,7 @@ export default function LandingScreen() {
                     <View className="px-6 gap-6">
 
                         {/* Customer */}
-                        <Link href="/(tabs)/home" asChild>
+                        <Link href="/onboarding" asChild>
                             <TouchableOpacity
                                 className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden"
                                 style={{ elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowRadius: 10 }}
@@ -46,7 +46,7 @@ export default function LandingScreen() {
                         </Link>
 
                         {/* Vendor */}
-                        <Link href="/vendor/dashboard" asChild>
+                        <Link href="/auth/login?role=vendor" asChild>
                             <TouchableOpacity
                                 className="bg-[#1A1D3B] p-6 rounded-3xl shadow-md border border-gray-800 relative overflow-hidden"
                             >
@@ -66,7 +66,7 @@ export default function LandingScreen() {
                         </Link>
 
                         {/* Driver */}
-                        <Link href="/driver/dashboard" asChild>
+                        <Link href="/auth/login?role=driver" asChild>
                             <TouchableOpacity
                                 className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden"
                                 style={{ elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowRadius: 10 }}
@@ -88,7 +88,7 @@ export default function LandingScreen() {
 
                     </View>
 
-                    <Text className="text-center text-gray-400 text-xs mt-10">FoodieHub v1.0.0 • Built with React Native</Text>
+                    <Text className="text-center text-gray-400 text-xs mt-10">FoodiesHub v1.0.1 • Built with React Native</Text>
                 </ScrollView>
             </SafeAreaView>
         </View>

@@ -5,13 +5,16 @@ import Constants from 'expo-constants';
 
 // Get API URL from environment or use platform-specific defaults
 const getApiUrl = () => {
-    // Check for production environment variable first
+    // 1. Check for production environment variable first
     const envApiUrl = Constants.expoConfig?.extra?.apiUrl || process.env.EXPO_PUBLIC_API_URL;
-    if (envApiUrl) {
-        return envApiUrl;
+    if (envApiUrl) return envApiUrl;
+
+    // 2. Default Production Fallback (Render)
+    if (process.env.NODE_ENV === 'production') {
+        return 'https://foodie-express-9vht.onrender.com/api';
     }
 
-    // Development fallbacks
+    // 3. Development fallbacks
     if (Platform.OS === 'web' || Platform.OS === 'ios') {
         return 'http://localhost:8000/api';
     }

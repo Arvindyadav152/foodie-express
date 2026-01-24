@@ -81,10 +81,19 @@ export default function LoginScreen() {
 
                     {/* Header */}
                     <View className="flex-row items-center justify-between mb-6 z-10">
-                        <TouchableOpacity onPress={() => router.push('/onboarding')} className="w-10 h-10 bg-[#f5f8f5] rounded-full items-center justify-center shadow-sm">
+                        <TouchableOpacity
+                            onPress={() => {
+                                if (router.canGoBack()) {
+                                    router.back();
+                                } else {
+                                    router.replace('/onboarding');
+                                }
+                            }}
+                            className="w-10 h-10 bg-[#f5f8f5] rounded-full items-center justify-center shadow-sm"
+                        >
                             <MaterialIcons name="chevron-left" size={24} color="#1A1D3B" />
                         </TouchableOpacity>
-                        <Text className="text-[#1A1D3B] text-lg font-extrabold tracking-tight">FoodieExpress</Text>
+                        <Text className="text-[#1A1D3B] text-lg font-extrabold tracking-tight">FoodiesHub</Text>
                         <View className="w-10 h-10 rounded-full items-center justify-center" style={{ backgroundColor: `${currentRole.color}15` }}>
                             <MaterialIcons name={currentRole.icon as any} size={20} color={currentRole.color} />
                         </View>
@@ -200,8 +209,13 @@ export default function LoginScreen() {
 
                         <View className="mt-6 items-center flex-row justify-center">
                             <Text className="text-[#608a60] text-sm">Are you a vendor? </Text>
-                            <TouchableOpacity onPress={() => router.push('/vendor/dashboard')}>
-                                <Text className="text-[#FF6B6B] font-bold">Switch to Partner App</Text>
+                            <TouchableOpacity onPress={() => {
+                                const newRole = role === 'vendor' ? 'customer' : 'vendor';
+                                router.push({ pathname: '/auth/login', params: { role: newRole } });
+                            }}>
+                                <Text className="text-[#FF6B6B] font-bold">
+                                    {role === 'vendor' ? 'Switch to Customer App' : 'Switch to Partner App'}
+                                </Text>
                             </TouchableOpacity>
                         </View>
                     </View>
